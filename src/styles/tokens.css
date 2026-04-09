@@ -1,0 +1,27 @@
+:root {
+  /* ─── Palette principale — Bleu Atlantique / Style épuré ─── */
+  --primary:       #1E6FA8;   /* Bleu principal — CTAs, liens actifs */
+  --primary-dark:  #145285;   /* Hover boutons */
+  --primary-light: #EBF5FF;   /* Fonds badges, hover nav */
+  --white:         #FFFFFF;
+  --off-white:     #F8FAFB;   /* Fonds sections alternées */
+  --gray-50:       #F8FAFB;
+  --gray-100:      #E8EAED;   /* Bordures, séparateurs */
+  --text-primary:  #111827;   /* Titres, texte principal */
+  --text-muted:    #6B7280;   /* Texte secondaire */
+
+  /* ─── Pas d'accent couleur — la photographie fait le travail ─── */
+
+  /* ─── Typographie ─── */
+  --font-serif:   var(--font-playfair);
+  --font-sans:    var(--font-inter);
+
+  /* ─── Rayons ─── */
+  --radius-card:  16px;
+  --radius-btn:   8px;
+  --border-color: var(--gray-100);
+
+  /* ─── Ombres ─── */
+  --shadow-card:       0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+  --shadow-card-hover: 0 4px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.10);
+}

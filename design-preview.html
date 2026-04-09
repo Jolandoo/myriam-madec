@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Preview — Myriam Madec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:        #1E6FA8;
+  --blue-dark:   #145285;
+  --blue-light:  #EBF5FF;
+  --white:       #FFFFFF;
+  --off-white:   #F8FAFB;
+  --border:      #E8EAED;
+  --text:        #111827;
+  --muted:       #6B7280;
+  --serif:       'Playfair Display', Georgia, serif;
+  --sans:        'Inter', system-ui, sans-serif;
+  --radius:      12px;
+  --shadow:      0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+  --shadow-hover:0 4px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.10);
+}
+
+body { font-family: var(--sans); background: var(--white); color: var(--text); line-height: 1.6; }
+
+/* ─── HEADER ─── */
+.header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.logo { font-family: var(--serif); font-size: 20px; color: var(--text); font-style: italic; }
+.logo span { display: block; font-family: var(--sans); font-size: 10px; font-style: normal; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-top: -2px; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { font-size: 14px; font-weight: 500; color: var(--muted); padding: 6px 14px; border-radius: 8px; text-decoration: none; transition: .15s; }
+.nav a:hover { color: var(--text); background: var(--off-white); }
+.btn-header { background: var(--blue); color: white; padding: 9px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-left: 12px; text-decoration: none; }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 92vh; min-height: 600px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: url('https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/lever-du-soleil-qewz0gjqc7lf7ejefanqg59seu5nvv7hpbjc9riduo.jpg') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.18) 0%, rgba(0,0,0,.38) 50%, rgba(0,0,0,.62) 100%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 720px; padding: 0 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.hero-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.hero-title {
+  font-family: var(--serif); font-size: clamp(42px, 6vw, 72px);
+  color: white; line-height: 1.1; font-weight: 600;
+  text-shadow: 0 2px 20px rgba(0,0,0,.35);
+}
+.hero-sub { font-size: 18px; color: rgba(255,255,255,.82); max-width: 500px; line-height: 1.65; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+.hero-actions { display: flex; gap: 12px; margin-top: 8px; }
+.btn-primary { background: var(--blue); color: white; padding: 14px 28px; border-radius: var(--radius); font-size: 15px; font-weight: 600; text-decoration: none; transition: .2s; }
+.btn-primary:hover { background: var(--blue-dark); }
+.btn-ghost { background: rgba(255,255,255,.15); backdrop-filter: blur(8px); color: white; border: 1.5px solid rgba(255,255,255,.45); padding: 14px 28px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; transition: .2s; }
+.btn-ghost:hover { background: rgba(255,255,255,.25); border-color: rgba(255,255,255,.7); }
+.hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.5); font-size: 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 2; }
+.hero-scroll svg { animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+/* ─── SECTION WRAPPER ─── */
+.section { padding: 88px 48px; max-width: 1200px; margin: 0 auto; }
+.section-alt { background: var(--off-white); }
+.section-alt .section { padding: 88px 48px; }
+
+/* ─── SECTION HEADER ─── */
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.section-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 40px); color: var(--text); font-weight: 600; line-height: 1.2; }
+.section-sub { font-size: 16px; color: var(--muted); max-width: 560px; margin: 12px auto 0; line-height: 1.7; }
+
+/* ─── FILTER BAR ─── */
+.filter-bar { display: flex; gap: 8px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+.filter { padding: 9px 18px; border-radius: 100px; font-size: 14px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); color: var(--muted); background: white; transition: .15s; }
+.filter:hover { border-color: var(--blue); color: var(--blue); }
+.filter.active { background: var(--blue); color: white; border-color: var(--blue); font-weight: 600; }
+
+/* ─── VISIT CARDS ─── */
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  background: white; border-radius: 16px;
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: box-shadow .25s, transform .25s;
+  cursor: pointer; text-decoration: none; color: inherit; display: block;
+}
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.card-img { position: relative; padding-top: 65%; overflow: hidden; }
+.card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.card:hover .card-img img { transform: scale(1.04); }
+.card-body { padding: 20px; }
+.card-badges { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.badge { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: var(--blue-light); color: var(--blue); }
+.badge-duration { font-size: 12px; color: var(--muted); font-weight: 500; display: flex; align-items: center; gap: 4px; }
+.card-title { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.card-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+.card-link { font-size: 13px; font-weight: 600; color: var(--blue); display: flex; align-items: center; gap: 4px; }
+.card-link::after { content: '→'; transition: .2s; }
+.card:hover .card-link::after { transform: translateX(3px); }
+
+/* ─── WHY MYRIAM ─── */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.why-item { display: flex; flex-direction: column; gap: 14px; }
+.why-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.why-title { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--text); }
+.why-text { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+/* ─── MYRIAM SECTION ─── */
+.myriam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.myriam-photo { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; }
+.myriam-photo img { width: 100%; height: 100%; object-fit: cover; }
+.myriam-content { display: flex; flex-direction: column; gap: 20px; }
+.myriam-content .section-eyebrow { text-align: left; }
+.myriam-content .section-title { text-align: left; }
+.myriam-quote { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--text); line-height: 1.6; padding-left: 20px; border-left: 2px solid var(--blue); }
+.myriam-text { font-size: 15px; color: var(--muted); line-height: 1.8; }
+.myriam-creds { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
+.cred { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.cred::before { content: '✓'; color: var(--blue); font-weight: 700; }
+
+/* ─── CTA BAND ─── */
+.cta-band { background: var(--blue); padding: 80px 48px; text-align: center; }
+.cta-band .section-title { color: white; }
+.cta-band .section-sub { color: rgba(255,255,255,.75); }
+.cta-band .btn-white { background: white; color: var(--blue); padding: 16px 36px; border-radius: var(--radius); font-size: 16px; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 28px; transition: .2s; }
+.cta-band .btn-white:hover { background: var(--off-white); }
+
+/* ─── FOOTER ─── */
+.footer { background: #0F1923; color: rgba(255,255,255,.6); padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: var(--serif); font-size: 18px; color: white; font-style: italic; }
+.footer-logo span { display: block; font-family: var(--sans); font-size: 11px; color: rgba(255,255,255,.4); font-style: normal; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+.footer-links { display: flex; gap: 24px; font-size: 13px; }
+.footer-contact { font-size: 14px; }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">Myriam Madec <span>Guide Conférencière</span></div>
+  <nav class="nav">
+    <a href="#">Mes visites</a>
+    <a href="#">Privatisation</a>
+    <a href="#">Tarifs</a>
+    <a href="#">Votre guide</a>
+    <a href="#">Contact</a>
+    <a href="#" class="btn-header">Réserver</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">Guide Conférencière Officielle · Bassin d'Arcachon</p>
+    <h1 class="hero-title">Visites guidées du Bassin d'Arcachon</h1>
+    <p class="hero-sub">Des visites inoubliables gravées dans vos mémoires <br> à pied, à vélo, en bateau.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Découvrir mes visites</a>
+      <a href="#" class="btn-ghost">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- VISITES -->
+<div style="background:var(--white)">
+<div class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Mes visites</p>
+    <h2 class="section-title">13 façons de découvrir le Bassin</h2>
+    <p class="section-sub">À pied dans la Ville d'Hiver, à vélo le long du littoral, ou en bateau vers l'Île aux Oiseaux.</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter active">Toutes &nbsp;<span style="opacity:.6">13</span></div>
+    <div class="filter">🥾 À pied &nbsp;<span style="opacity:.6">8</span></div>
+    <div class="filter">⚡ Vélo électrique &nbsp;<span style="opacity:.6">2</span></div>
+    <div class="filter">🚲 À vélo &nbsp;<span style="opacity:.6">2</span></div>
+    <div class="filter">⛵ En bateau &nbsp;<span style="opacity:.6">1</span></div>
+  </div>
+
+  <div class="cards-grid">
+    <a class="card" href="#">
+      <div class="card-img"><img src="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/ville-hiver-qewz0dq7rphk8knhvrfuqnzemojk8rwaoxkvtxmkdc.jpg" alt="Ville d'Hiver"></div>
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge">À pied</span>
+          <span class="badge-duration">⏱ 2h</span>
+        </div>
+        <div class="card-title">Ville d'Hiver</div>
+        <div class="card-sub">Flânez parmi les villas Belle Époque créées par les Frères Pereire.</div>
+        <div class="card-link">Voir la visite</div>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card-img"><img src="https://tourismearcachon.fr/wp-content/uploads/2021/02/VIN2108-scaled.jpg" alt="Bateau Bassin"></div>
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge">En bateau</span>
+          <span class="badge-duration">⏱ 2h – journée</span>
+        </div>
+        <div class="card-title">Bassin d'Arcachon en Bateau</div>
+        <div class="card-sub">Île aux Oiseaux, Cabanes Tchanquées, Banc d'Arguin depuis l'eau.</div>
+        <div class="card-link">Voir la visite</div>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card-img"><img src="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/lever-du-soleil-qewz0gjqc7lf7ejefanqg59seu5nvv7hpbjc9riduo.jpg" alt="Dune Pilat"></div>
+      <div class="card-body">
+        <div class="card-badges">
+          <span class="badge">À pied</span>
+          <span class="badge-duration">⏱ 1h30</span>
+        </div>
+        <div class="card-title">La Dune du Pilat au Lever du Soleil</div>
+        <div class="card-sub">Départ 6h — gravissez la plus haute dune d'Europe dans le silence de l'aube.</div>
+        <div class="card-link">Voir la visite</div>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
+
+<!-- WHY -->
+<div class="section-alt">
+<div class="section">
+  <div class="section-header">
+    <p class="section-eyebrow">Pourquoi choisir un guide officiel</p>
+    <h2 class="section-title">Une expérience, pas une visite</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon">🎓</div>
+      <div class="why-title">Guide diplômée depuis 1994</div>
+      <div class="why-text">Guide Interprète Nationale, membre de la FNGIC — une expertise forgée sur 30 ans de terrain sur le Bassin d'Arcachon.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🗣️</div>
+      <div class="why-title">Français, anglais, espagnol</div>
+      <div class="why-text">Visites assurées en trois langues pour accueillir tous vos groupes, quelle que soit leur provenance.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🗺️</div>
+      <div class="why-title">Les coulisses du territoire</div>
+      <div class="why-text">Des accès exclusifs — criée à 6h, bunker sous l'office de tourisme, lever de soleil sur la dune — introuvables sans guide officiel.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MYRIAM -->
+<div style="background:var(--white)">
+<div class="section">
+  <div class="myriam-grid">
+    <div class="myriam-photo">
+      <img src="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/nonos-myriam-qewz0tpgzw3fpy0aagcif1y8q8csvmnqf4o4zmyvfk.jpg" alt="Myriam Madec, guide conférencière">
+    </div>
+    <div class="myriam-content">
+      <p class="section-eyebrow">Votre guide</p>
+      <h2 class="section-title">Myriam Madec</h2>
+      <p class="myriam-quote">« Faire de votre séjour une expérience enrichissante et inoubliable — c'est ma mission depuis 30 ans. »</p>
+      <p class="myriam-text">Passionnée d'archéologie depuis l'enfance, Myriam a découvert sa vraie vocation dans la transmission. Guide accompagnatrice de Pays depuis 1995, elle connaît le Bassin d'Arcachon dans ses moindres recoins — des cabanes tchanquées aux fouilles archéologiques sous la dune.</p>
+      <div class="myriam-creds">
+        <div class="cred">Guide Interprète Nationale (1997)</div>
+        <div class="cred">Guide Accompagnatrice de Pays (1995)</div>
+        <div class="cred">Membre FNGIC & Guides de Nouvelle-Aquitaine</div>
+        <div class="cred">Français · Anglais · Espagnol</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div style="max-width:600px;margin:0 auto">
+    <h2 class="section-title">Prête à vous faire découvrir le Bassin ?</h2>
+    <p class="section-sub">Groupes, familles, scolaires — contactez Myriam pour composer votre visite sur mesure.</p>
+    <a href="#" class="btn-white">Prendre contact</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Myriam Madec <span>Guide Conférencière · Bassin d'Arcachon</span></div>
+  <div class="footer-links">
+    <span>Mes visites</span><span>Tarifs</span><span>Votre guide</span><span>Contact</span>
+  </div>
+  <div class="footer-contact">+33 6 80 43 96 78</div>
+</footer>
+
+</body>
+</html>
