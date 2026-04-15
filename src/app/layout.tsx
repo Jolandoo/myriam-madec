@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     'excursion bateau Bassin d\'Arcachon',
     'tourisme Arcachon',
   ],
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   authors: [{ name: 'Myriam Madec' }],
   creator: 'Myriam Madec',
   metadataBase: new URL('https://www.tourismearcachon.fr'),
