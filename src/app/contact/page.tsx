@@ -11,9 +11,20 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    // TODO: connecter à une API d'envoi (Resend, Formspree, etc.)
-    await new Promise((r) => setTimeout(r, 1000))
-    setStatus('sent')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('sent')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -75,6 +86,11 @@ export default function ContactPage() {
                     ].join(' ')}
                   />
                 </div>
+                {status === 'error' && (
+                  <p className="font-[var(--font-sans)] text-sm text-red-600 bg-red-50 px-4 py-3 rounded-xl">
+                    Une erreur est survenue. Veuillez réessayer ou me contacter directement par téléphone.
+                  </p>
+                )}
                 <button
                   type="submit"
                   disabled={status === 'sending'}
