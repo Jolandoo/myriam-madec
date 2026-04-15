@@ -6,16 +6,17 @@ import PageHero from '@/components/layout/PageHero'
 export const metadata: Metadata = {
   title: 'Tarifs — Myriam Madec, Guide Conférencière Bassin d\'Arcachon',
   description:
-    'Tarifs des visites guidées privatisées sur le Bassin d\'Arcachon. Groupes, familles, scolaires — à partir de 190 €.',
+    'Tarifs des visites guidées privatisées sur le Bassin d\'Arcachon. Groupes, familles, scolaires — à partir de 200 €.',
 }
 
 const PRIX = [
-  { duree: '2 heures',       prix: '190 €' },
-  { duree: '3 heures',       prix: '225 €' },
-  { duree: '4 heures',       prix: '250 €' },
-  { duree: '5 heures',       prix: '275 €' },
-  { duree: 'Journée entière', prix: '350 €' },
-  { duree: 'Heure supplémentaire', prix: '40 €' },
+  { duree: '2 heures',        prix: '200 €' },
+  { duree: '3 heures',        prix: '230 €' },
+  { duree: '4 heures',        prix: '260 €' },
+  { duree: '5 heures',        prix: '290 €' },
+  { duree: '6 heures',        prix: '320 €' },
+  { duree: '7 heures',        prix: '350 €' },
+  { duree: 'Journée entière', prix: '400 €' },
 ]
 
 const CONDITIONS = [

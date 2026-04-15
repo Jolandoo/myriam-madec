@@ -10,20 +10,7 @@ export interface Article {
 }
 
 export const articles: Article[] = [
-  {
-    slug: 'journee-internationale-guides-2023',
-    titre: 'Journée internationale des guides 2023',
-    date: '27 janvier 2023',
-    image: 'https://tourismearcachon.fr/wp-content/uploads/2023/01/IMG-20230127-WA0002.jpg',
-    imageAlt: 'Journée Internationale des Guides 2023 — Bassin d\'Arcachon',
-    extrait: 'À l\'occasion de la Journée Internationale des Guides, Myriam célèbre avec ses confrères guides du monde entier la passion du patrimoine et de la transmission.',
-    contenu: `Le 21 février marque chaque année la Journée Internationale des Guides Touristiques. Une occasion de célébrer ce métier de passion qui consiste à transmettre, partager et faire découvrir le patrimoine local à ceux qui nous font l'honneur de leur curiosité.
-
-À Arcachon, l'équipe des Guides Officiels du Bassin s'est réunie pour célébrer ensemble cette journée particulière, fidèle à sa tradition annuelle. Un moment de convivialité et de partage entre professionnels qui partagent la même passion pour leur territoire.
-
-Guider, c'est bien plus qu'un métier — c'est une vocation au service de la transmission culturelle et patrimoniale.`,
-  },
-  {
+    {
     slug: 'journee-internationale-guides-2022',
     titre: 'Journée Internationale des Guides 2022',
     date: '28 mars 2022',

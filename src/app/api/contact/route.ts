@@ -16,8 +16,8 @@ export async function POST(request: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'Site web <noreply@tourismearcachon.fr>',
-      to:   ['contact@tourismearcachon.fr'],
+      from: 'Arcachon Tourisme - Myriam Madec <onboarding@resend.dev>',
+      to:   ['myramixa@aol.com'],
       replyTo: email,
       subject: `Nouveau message de ${prenom} ${nom} — tourismearcachon.fr`,
       html: `
@@ -63,9 +63,9 @@ export async function POST(request: Request) {
     })
 
     if (error) {
-      console.error('Resend error:', error)
+      console.error('Resend error:', JSON.stringify(error))
       return NextResponse.json(
-        { error: 'Erreur lors de l\'envoi. Veuillez réessayer.' },
+        { error: 'Erreur lors de l\'envoi. Veuillez réessayer.', detail: error },
         { status: 500 }
       )
     }
