@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default:  'Myriam Madec — Guide Conférencière Bassin d\'Arcachon',
+    default:  'Arcachon Tourisme — Myriam Madec — Guide Conférencière Bassin d\'Arcachon',
     template: '%s — Myriam Madec, Guide Conférencière',
   },
   description:
