@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="relative z-10 section-container flex flex-col items-center text-center gap-5 pt-20 pb-24">
 
         <motion.p {...fadeUp(0.2)}
-          className="font-[var(--font-sans)] text-xs font-semibold uppercase tracking-[3px] text-white/70"
+          className="font-[var(--font-sans)] text-sm font-semibold uppercase tracking-[3px] text-white/70"
         >
           Guide Conférencière Officielle · Bassin d'Arcachon
         </motion.p>
@@ -72,7 +72,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p {...fadeUp(0.52)}
-          className="font-[var(--font-sans)] text-white/80 max-w-lg text-lg leading-relaxed"
+          className="font-[var(--font-sans)] text-white/80 max-w-lg text-xl leading-relaxed"
           style={{ textShadow: '0 1px 8px rgba(0,0,0,.3)' }}
         >
           Des visites inoubliables gravées dans vos mémoires —
@@ -85,7 +85,7 @@ export default function Hero() {
             className={[
               'inline-flex items-center px-7 py-3.5 rounded-[var(--radius-btn)]',
               'bg-[var(--primary)] text-white',
-              'font-[var(--font-sans)] font-semibold text-sm',
+              'font-[var(--font-sans)] font-semibold text-base',
               'hover:bg-[var(--primary-dark)] transition-colors duration-200',
               'shadow-lg',
             ].join(' ')}
@@ -98,7 +98,7 @@ export default function Hero() {
               'inline-flex items-center px-7 py-3.5 rounded-[var(--radius-btn)]',
               'bg-white/10 backdrop-blur-sm text-white',
               'border border-white/30',
-              'font-[var(--font-sans)] font-medium text-sm',
+              'font-[var(--font-sans)] font-medium text-base',
               'hover:bg-white/20 hover:border-white/50 transition-all duration-200',
             ].join(' ')}
           >
@@ -119,8 +119,8 @@ export default function Hero() {
             { count: '1',  label: 'visite en bateau'  },
           ].map(({ count, label }) => (
             <div key={label} className="flex flex-col items-center gap-0.5">
-              <span className="font-[var(--font-serif)] text-white text-3xl">{count}</span>
-              <span className="font-[var(--font-sans)] text-white/50 text-[10px] uppercase tracking-[1.5px]">{label}</span>
+              <span className="font-[var(--font-serif)] text-white text-4xl">{count}</span>
+              <span className="font-[var(--font-sans)] text-white/50 text-xs uppercase tracking-[1.5px]">{label}</span>
             </div>
           ))}
         </motion.div>
