@@ -38,8 +38,8 @@ export default function TarifsPage() {
         eyebrow="Tarifs"
         title="Tarifs groupe & privatisation"
         description="Tous les tarifs s'entendent par groupe, quelle que soit la taille — à pied, à vélo ou en bateau."
-        image="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/Port-de-la-teste-qewz0jd8wppa68faytvm5mk66zrriyiopphsple7c0.jpg"
-        imageAlt="Port de La Teste-de-Buch"
+        image="https://upload.wikimedia.org/wikipedia/commons/1/1a/Port_d%27Arcachon.jpg"
+        imageAlt="Port d'Arcachon"
       />
 
       <div className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-16">

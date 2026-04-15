@@ -15,8 +15,8 @@ export default function MesVisitesPage() {
         eyebrow="Guide Conférencière Officielle"
         title="Mes visites guidées"
         description="À pied dans les ruelles de la Ville d'Hiver, à vélo le long du littoral, ou en bateau vers l'Île aux Oiseaux — chaque visite est une rencontre avec le Bassin."
-        image="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/tchanquees-nonos-qewz0yeny29vbztgj0dn9irjp5pmy46e3rxke0rwkg.jpg"
-        imageAlt="Cabanes tchanquées du Bassin d'Arcachon"
+        image="https://upload.wikimedia.org/wikipedia/commons/7/7a/Coucher_de_soleil_sur_le_bassin_%2810731201504%29.jpg"
+        imageAlt="Coucher de soleil sur le Bassin d'Arcachon"
       />
       <VisitesGrid />
     </main>

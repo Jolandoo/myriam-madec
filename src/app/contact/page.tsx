@@ -25,8 +25,8 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Me contacter"
         description="Pour réserver une visite, obtenir un devis ou simplement poser une question — je réponds sous 24h."
-        image="https://tourismearcachon.fr/wp-content/uploads/2021/02/VIN2108-scaled.jpg"
-        imageAlt="Pinasse sur le Bassin d'Arcachon"
+        image="https://upload.wikimedia.org/wikipedia/commons/6/6f/Aerial_view_of_Bassin_d%27Arcachon_and_Dune_du_Pilat_%281%29.JPG"
+        imageAlt="Vue aérienne du Bassin d'Arcachon et de la Dune du Pilat"
       />
 
       <div className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-16">

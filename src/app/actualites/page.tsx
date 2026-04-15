@@ -54,8 +54,8 @@ export default function ActualitesPage() {
         eyebrow="Actualités"
         title="Les dernières nouvelles"
         description="Nouveautés, événements, journées des guides — suivez la vie du Bassin d'Arcachon."
-        image="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/Dune-01-qewz067i9179noyf3o6u6pvpvlkmj72fzwczzpxpr4.jpg"
-        imageAlt="Dune du Pilat"
+        image="https://upload.wikimedia.org/wikipedia/commons/c/c9/Sunrise_Cap_Ferret_Banc_du_Toulinguet_-_Arcachon_-_Oc%C3%A9an_Atlantique_-_Picture_Image_Photography_-_Sunset_-_Coucher_de_soleil_-_Dune_du_pilat_pyla_-_Banc_d%27arguin_water_eau_vagues_waves_beach_plage_sky_colors_red_yellow_%2814501089751%29.jpg"
+        imageAlt="Lever de soleil au Cap Ferret, Bassin d'Arcachon"
       />
 
       <div className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-16">

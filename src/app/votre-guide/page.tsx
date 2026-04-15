@@ -38,8 +38,8 @@ export default function VotreGuidePage() {
         eyebrow="Votre guide"
         title="Myriam Madec"
         description="Guide Interprète Nationale officielle du Bassin d'Arcachon depuis 1994."
-        image="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/Port-Ostreicole-qewz0buje1ezlcq86qmlloghfwsttdou0o9wvdpcps.jpg"
-        imageAlt="Port ostréicole du Bassin d'Arcachon"
+        image="https://upload.wikimedia.org/wikipedia/commons/d/da/Arcachon-Jetee-Eyrac-byRundvald.jpg"
+        imageAlt="Jetée Eyrac sur la plage d'Arcachon"
       />
 
       {/* ── Bio principale ──────────────────────────────────────────────────── */}

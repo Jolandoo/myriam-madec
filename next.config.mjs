@@ -3,11 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        // Images du site WordPress existant — à remplacer par /images/... locales
-        // une fois que Myriam aura exporté ses photos
         protocol: 'https',
         hostname: 'tourismearcachon.fr',
         pathname: '/wp-content/uploads/**',
+      },
+      {
+        // Photos libres de droits Wikimedia Commons
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/wikipedia/**',
       },
     ],
   },

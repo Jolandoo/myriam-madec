@@ -46,8 +46,8 @@ export default function PrivatisationPage() {
         eyebrow="Sur mesure"
         title="Balades privatisées sur le littoral Arcachonnais"
         description="À pied, à vélo ou en bateau — choisissez votre jour, votre heure et votre thème. Votre visite devient unique et personnalisée."
-        image="https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/VIN2830-2-scaled-qewz1260pef0mfnzx205jhte2p73swlbgajib4mbvk.jpg"
-        imageAlt="Tour des cabanes tchanquées en bateau"
+        image="https://upload.wikimedia.org/wikipedia/commons/a/a6/Bassin_d%27Arcachon_-_Cabanes_tchanqu%C3%A9es.jpg"
+        imageAlt="Cabanes tchanquées sur l'Île aux Oiseaux, Bassin d'Arcachon"
       />
 
       {/* ── Modes de visite ─────────────────────────────────────────────────── */}
