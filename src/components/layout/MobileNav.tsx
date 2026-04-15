@@ -101,7 +101,7 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
                   'transition-colors hover:bg-[var(--primary-dark)]',
                 ].join(' ')}
               >
-                Réserver une visite
+                Contact & Réservation
               </Link>
             </div>
           </motion.nav>

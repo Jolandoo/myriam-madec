@@ -15,7 +15,6 @@ const NAV_LINKS = [
   { label: 'Tarifs',         href: '/tarifs'         },
   { label: 'Actualités',     href: '/actualites'     },
   { label: 'Votre guide',    href: '/votre-guide'    },
-  { label: 'Contact',        href: '/contact'        },
 ]
 
 // ─── Composant ────────────────────────────────────────────────────────────────
@@ -34,7 +33,7 @@ export default function Header() {
 
   // Ferme le menu mobile si l'écran est redimensionné en desktop
   useEffect(() => {
-    const handleResize = () => { if (window.innerWidth >= 768) setMobileOpen(false) }
+    const handleResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false) }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -89,7 +88,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation desktop */}
-          <nav aria-label="Navigation principale" className="hidden md:flex items-center gap-1">
+          <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -118,7 +117,7 @@ export default function Header() {
                   : 'bg-white text-[var(--primary)] hover:bg-white/90',
               ].join(' ')}
             >
-              Réserver
+              Contact & Réservation
             </Link>
           </nav>
 
@@ -128,7 +127,7 @@ export default function Header() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(true)}
             className={[
-              'md:hidden p-2 -mr-1 rounded-lg transition-colors',
+              'lg:hidden p-2 -mr-1 rounded-lg transition-colors',
               scrolled
                 ? 'text-[var(--text-primary)] hover:bg-[var(--primary-light)]'
                 : 'text-white hover:bg-white/15',

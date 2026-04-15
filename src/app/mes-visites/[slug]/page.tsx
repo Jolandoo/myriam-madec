@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Clock, MapPin, Users, Star, ArrowLeft, ExternalLink, Phone } from 'lucide-react'
+import { Clock, MapPin, Users, Star, ArrowLeft, ExternalLink } from 'lucide-react'
 import { visites, categorieLabels, niveauLabels, type Visite } from '@/data/visites'
 
 /* ── Static params ────────────────────────────────────────────────────────── */
@@ -230,22 +230,9 @@ export default async function VisitePage(
                       'hover:bg-[var(--primary-dark)] transition-colors duration-200',
                     ].join(' ')}
                   >
-                    Réserver cette visite
+                    Contact &amp; Réservation
                   </Link>
                 )}
-
-                <a
-                  href="tel:+33680439678"
-                  className={[
-                    'flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn)]',
-                    'border border-[var(--gray-100)] text-[var(--text-primary)]',
-                    'font-[var(--font-sans)] text-sm',
-                    'hover:bg-[var(--off-white)] transition-colors duration-200',
-                  ].join(' ')}
-                >
-                  <Phone size={14} className="text-[var(--primary)]" />
-                  +33 6 80 43 96 78
-                </a>
               </div>
             </div>
 
