@@ -35,10 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-public
-!public/videos/
-!public/videos/hero-web.mp4
-
 # claude
 .claude
 CLAUDE.md
