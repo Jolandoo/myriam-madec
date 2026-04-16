@@ -55,7 +55,7 @@ export default async function VisitePage(
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '55vh' }}>
         <Image
-          src={visite.image}
+          src={visite.imageDetail ?? visite.image}
           alt={visite.titre}
           fill
           priority
@@ -70,6 +70,13 @@ export default async function VisitePage(
           className="absolute top-0 left-0 right-0 h-36"
           style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,.50) 0%, transparent 100%)' }}
         />
+        {/* Crédit photo */}
+        {visite.imageCredit && (
+          <p className="absolute bottom-3 right-4 z-10 text-white/50 text-[10px] font-[var(--font-sans)]">
+            {visite.imageCredit}
+          </p>
+        )}
+
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-10 md:px-16 flex flex-col justify-end pb-12 pt-32" style={{ minHeight: '55vh' }}>
           {/* Breadcrumb */}
           <Link
