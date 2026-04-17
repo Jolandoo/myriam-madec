@@ -1,36 +1,176 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tourismearcachon.fr — Myriam Madec
 
-## Getting Started
+Site vitrine de **Myriam Madec**, Guide Interprète Nationale officielle du Bassin d'Arcachon depuis 1994. Visites guidées à pied, à vélo et en bateau.
 
-First, run the development server:
+🌐 **Production** : [myriam-madec.vercel.app](https://myriam-madec.vercel.app) → futur domaine : `tourismearcachon.fr`
+
+---
+
+## Stack
+
+| Technologie | Usage |
+|---|---|
+| [Next.js 15](https://nextjs.org) (App Router) | Framework |
+| TypeScript strict | Langage |
+| Tailwind CSS + CSS variables | Styles |
+| Framer Motion | Animations |
+| Playfair Display + Inter | Polices (Google Fonts) |
+| Lucide React | Icônes |
+| [Resend](https://resend.com) | Envoi d'emails (formulaire contact) |
+| Vercel | Hébergement & déploiement |
+
+---
+
+## Démarrage rapide
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Serveur de développement (http://localhost:3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build production
+npm run build
+
+# Démarrer en production
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Variables d'environnement
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Créer un fichier `.env.local` à la racine :
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+```
 
-## Learn More
+> La clé Resend est nécessaire pour le formulaire de contact. Sans elle, les envois d'emails échouent en production.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure du projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── layout.tsx                  # Layout global, metadata SEO, JSON-LD
+│   ├── page.tsx                    # Accueil
+│   ├── mes-visites/
+│   │   ├── page.tsx                # Catalogue avec filtres
+│   │   └── [slug]/page.tsx         # Page individuelle de visite
+│   ├── actualites/
+│   │   ├── page.tsx                # Liste des articles
+│   │   └── [slug]/page.tsx         # Article individuel avec galerie
+│   ├── tarifs/page.tsx
+│   ├── votre-guide/page.tsx
+│   ├── contact/page.tsx
+│   ├── privatisation/page.tsx
+│   ├── api/contact/route.ts        # API Resend
+│   ├── sitemap.ts                  # Sitemap automatique
+│   └── robots.ts
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx              # Nav sticky, transparent sur hero
+│   │   ├── Footer.tsx
+│   │   └── MobileNav.tsx
+│   ├── sections/                   # Sections de la page d'accueil
+│   └── ui/
+│       └── PhotoGallery.tsx        # Lightbox Framer Motion
+├── data/
+│   ├── visites.ts                  # 13 visites avec métadonnées
+│   └── articles.ts                 # Articles actualités
+public/
+├── icon.png                        # Favicon
+└── videos/
+    └── hero-web.mp4                # Vidéo hero compressée (~7 Mo)
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Données
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Ajouter / modifier une visite — `src/data/visites.ts`
+
+```typescript
+{
+  slug: 'mon-slug',            // URL : /mes-visites/mon-slug
+  titre: 'Titre de la visite',
+  sousTitre: 'Sous-titre',
+  categorie: 'pied' | 'velo' | 'velo-electrique' | 'bateau',
+  duree: '2h',
+  description: '...',          // Description longue (page détail)
+  descriptionCourte: '...',    // Max ~120 caractères (card catalogue)
+  image: 'https://...',        // Thumbnail pour les cards
+  imageDetail: 'https://...',  // Image HD pour le hero de la page détail
+  imageCredit: '© Auteur',     // Affiché en overlay sur le hero
+  reservation: 'office-tourisme' | 'contact-direct',
+  reservationUrl: 'https://...', // Si office-tourisme
+  tags: ['tag1', 'tag2'],
+  niveauActivite: 'facile' | 'modere' | 'sportif',
+  enfantsFriendly: boolean,
+}
+```
+
+> **Images externes** : les domaines autorisés pour `next/image` sont déclarés dans `next.config.mjs`. Ajouter un nouveau domaine si nécessaire.
+
+### Ajouter un article — `src/data/articles.ts`
+
+Même principe : ajouter un objet au tableau `articles` avec `slug`, `titre`, `date`, `image`, `extrait`, `contenu` (tableau de paragraphes), `images` (galerie lightbox).
+
+---
+
+## Email de contact
+
+Le formulaire `/contact` envoie via l'API Resend (`src/app/api/contact/route.ts`).
+
+**Configuration actuelle (temporaire)** :
+- `from` : `onboarding@resend.dev` (domaine de test Resend)
+- `to` : `jolann.madec21@gmail.com`
+
+**À mettre à jour quand le domaine OVH est accessible** :
+```typescript
+from: 'Myriam Madec <noreply@tourismearcachon.fr>',
+to:   ['myramixa@aol.com'],
+```
+> Nécessite d'ajouter les enregistrements DNS Resend (TXT + DKIM) sur OVH.
+
+---
+
+## SEO
+
+- **Metadata** : titre/description par page via `generateMetadata`
+- **JSON-LD** : schéma `LocalBusiness` dans `layout.tsx`
+- **Sitemap** : généré automatiquement via `src/app/sitemap.ts`
+- **robots.txt** : `src/app/robots.ts`
+- **Canonical** : `https://www.tourismearcachon.fr`
+
+---
+
+## Déploiement
+
+Le projet est déployé sur **Vercel** via GitHub. Chaque push sur `main` déclenche un déploiement automatique.
+
+```bash
+# Vérifier le build avant de pousser
+npm run build
+```
+
+Variable d'environnement à configurer dans Vercel : `RESEND_API_KEY`
+
+---
+
+## Photos — droits en attente
+
+Images utilisées temporairement avec des alternatives libres (Wikimedia Commons / Pexels). Envoyer un mail pour autorisation avant mise en ligne officielle :
+
+| Page | Contact |
+|---|---|
+| Bunker 502 | CDT Gironde |
+| Criée d'Arcachon | Office de Tourisme d'Arcachon |
+| Ville d'Hiver | Hugo Teste (photographe) |
+| Prés Salés (à pied) | Tourisme La Teste de Buch |
+| Dune lever de soleil | Splendia |
+| Vélo Ville d'Hiver | Auteur à identifier |
+
+Les URLs souhaitées sont conservées en commentaire `// TODO permission` dans `src/data/visites.ts`.
