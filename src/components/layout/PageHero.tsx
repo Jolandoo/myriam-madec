@@ -55,7 +55,7 @@ export default function PageHero({ eyebrow, title, description, image, imageAlt 
           </h1>
           {description && (
             <p
-              className="font-[var(--font-sans)] text-white/80 max-w-xl text-base leading-relaxed"
+              className="font-[var(--font-sans)] text-white/80 max-w-xl text-xl leading-relaxed"
               style={{ textShadow: '0 1px 8px rgba(0,0,0,.3)' }}
             >
               {description}
@@ -84,7 +84,7 @@ export default function PageHero({ eyebrow, title, description, image, imageAlt 
           {title}
         </h1>
         {description && (
-          <p className="font-[var(--font-sans)] text-[var(--text-muted)] max-w-xl text-base leading-relaxed">
+          <p className="font-[var(--font-sans)] text-[var(--text-muted)] max-w-xl text-xl leading-relaxed">
             {description}
           </p>
         )}

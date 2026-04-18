@@ -37,7 +37,7 @@ export default function VisitesGrid({ visites }: Props) {
         {/* Header */}
         <SectionHeader
           eyebrow="Mes visites"
-          title="13 façons de découvrir"
+          title={`${visites.length} façons de découvrir`}
           titleAccent="le Bassin"
           subtitle="À pied, à vélo électrique, à vélo ou en bateau — chaque visite est une histoire différente."
           align="center"
