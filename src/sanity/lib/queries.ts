@@ -21,6 +21,7 @@ const VISITE_FIELDS = `
   titre, sousTitre, categorie, duree,
   description, descriptionCourte,
   image, imageDetail, imageCredit,
+  programme,
   reservation, reservationUrl,
   tags, niveauActivite, enfantsFriendly, ordre
 `
