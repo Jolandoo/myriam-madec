@@ -17,12 +17,17 @@ export default defineConfig({
         S.list()
           .title('Contenu du site')
           .items([
+            /* ── Contenu dynamique ─────────────────────────────────────────── */
             S.listItem()
               .title('Visites guidées')
               .child(S.documentTypeList('visite').title('Visites guidées')),
             S.listItem()
               .title('Actualités')
               .child(S.documentTypeList('article').title('Articles')),
+
+            S.divider(),
+
+            /* ── Pages singletons ──────────────────────────────────────────── */
             S.listItem()
               .title('Tarifs')
               .child(
@@ -30,6 +35,22 @@ export default defineConfig({
                   .title('Tarifs')
                   .schemaType('tarifs')
                   .documentId('singleton-tarifs')
+              ),
+            S.listItem()
+              .title('Votre guide')
+              .child(
+                S.editor()
+                  .title('Votre guide')
+                  .schemaType('pageGuide')
+                  .documentId('singleton-page-guide')
+              ),
+            S.listItem()
+              .title('Privatisation')
+              .child(
+                S.editor()
+                  .title('Privatisation')
+                  .schemaType('pagePrivatisation')
+                  .documentId('singleton-page-privatisation')
               ),
           ]),
     }),

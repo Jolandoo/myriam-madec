@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Bike, Footprints, Sailboat } from 'lucide-react'
+import { Bike, Footprints, Sailboat, Car } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
 import GalerieCarousel from '@/components/ui/GalerieCarousel'
+import { getPagePrivatisation } from '@/sanity/lib/queries'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Privatisation — Myriam Madec, Guide Conférencière Bassin d\'Arcachon',
@@ -11,25 +14,15 @@ export const metadata: Metadata = {
     'Privatisez votre guide conférencière pour une visite sur mesure du Bassin d\'Arcachon — à pied, à vélo ou en bateau, en famille, entre amis ou en groupe.',
 }
 
-const MODES = [
-  {
-    icon: Bike,
-    label: 'À vélo',
-    desc: 'Explorez le littoral et la forêt landaise à votre rythme, à vélo classique ou électrique.',
-  },
-  {
-    icon: Footprints,
-    label: 'À pied',
-    desc: 'Flânez dans les allées de la Ville d\'Hiver ou sur les sentiers des prés salés.',
-  },
-  {
-    icon: Sailboat,
-    label: 'En bateau',
-    desc: 'Naviguez vers l\'Île aux Oiseaux et les cabanes tchanquées pour une expérience unique.',
-  },
+/* ── Fallbacks statiques ─────────────────────────────────────────────────── */
+
+const MODES_DEFAULT = [
+  { icone: 'bike',       label: 'À vélo',   desc: 'Explorez le littoral et la forêt landaise à votre rythme, à vélo classique ou électrique.' },
+  { icone: 'footprints', label: 'À pied',   desc: 'Flânez dans les allées de la Ville d\'Hiver ou sur les sentiers des prés salés.' },
+  { icone: 'sailboat',   label: 'En bateau', desc: 'Naviguez vers l\'Île aux Oiseaux et les cabanes tchanquées pour une expérience unique.' },
 ]
 
-const GALERIE = [
+const GALERIE_DEFAULT = [
   { src: 'https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/IMG-20210116-WA0006-qewz0p0a1px03w741wbdkl4xrazyt552qhepl95uao.jpeg', alt: 'Plage Pereire' },
   { src: 'https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/nonos-velo-qewz0unb6q4q1jyx4yr4zjppbm863brgr9bmgwxh9c.jpg', alt: 'Arcachon en vélo' },
   { src: 'https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/tchanquees-nonos-qewz0yeny29vbztgj0dn9irjp5pmy46e3rxke0rwkg.jpg', alt: 'Cabanes tchanquées' },
@@ -40,69 +33,84 @@ const GALERIE = [
   { src: 'https://tourismearcachon.fr/wp-content/uploads/elementor/thumbs/Port-Ostreicole-qewz0buje1ezlcq86qmlloghfwsttdou0o9wvdpcps.jpg', alt: 'Port ostréicole' },
 ]
 
-export default function PrivatisationPage() {
+const TEXTE_DEFAULT = [
+  'Que ce soit à pied, en vélo ou en bateau, je vous propose de découvrir le Bassin d\'Arcachon, ses plages, son ambiance, ainsi que les quartiers Arcachonnais, Pereire, Abatilles et Moulleau en famille ou entre amis.',
+  'Tout au long de l\'année, je vous propose de privatiser votre guide pour découvrir en toute liberté notre patrimoine. C\'est pour vous l\'occasion de choisir le jour, l\'heure, le thème de votre visite et d\'en profiter — de vous construire des souvenirs entre amis ou en famille.',
+  'En privatisant une guide conférencière locale, vous avez un véritable moment de partage et de convivialité. Je peux répondre à toutes vos questions sur la visite ou sur votre séjour en général, vous conseiller sur des établissements, des endroits ou des animations à ne pas manquer.',
+]
+
+/* ── Icônes ──────────────────────────────────────────────────────────────── */
+
+const ICONS: Record<string, React.ElementType> = {
+  bike:       Bike,
+  footprints: Footprints,
+  sailboat:   Sailboat,
+  car:        Car,
+}
+
+/* ── Page ────────────────────────────────────────────────────────────────── */
+
+export default async function PrivatisationPage() {
+  const cms = await getPagePrivatisation()
+
+  const heroTitle           = cms?.heroTitle           ?? 'Balades privatisées sur le littoral Arcachonnais'
+  const heroDescription     = cms?.heroDescription     ?? 'À pied, à vélo ou en bateau — choisissez votre jour, votre heure et votre thème. Votre visite devient unique et personnalisée.'
+  const heroImage           = cms?.heroImage           ?? 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Bassin_d%27Arcachon_-_Cabanes_tchanqu%C3%A9es.jpg'
+  const heroImageAlt        = cms?.heroImageAlt        ?? 'Cabanes tchanquées sur l\'Île aux Oiseaux, Bassin d\'Arcachon'
+  const modes               = cms?.modes?.length       ? cms.modes    : MODES_DEFAULT
+  const galerie             = cms?.galerie?.length     ? cms.galerie  : GALERIE_DEFAULT
+  const texte               = cms?.texte?.length       ? cms.texte    : TEXTE_DEFAULT
+  const coupDeCoeurTitre    = cms?.coupDeCoeurTitre    ?? '"On a marché sur la Dune"'
+  const coupDeCoeurTexte    = cms?.coupDeCoeurTexte    ?? 'Soyez les premiers à laisser vos empreintes sur la dune du Pilat, lors d\'un lever de soleil — et profitez de la dune, rien que pour vous.'
+  const coupDeCoeurImage    = cms?.coupDeCoeurImage    ?? 'https://tourismearcachon.fr/wp-content/uploads/2021/02/lever-du-soleil-1808.jpg'
+  const coupDeCoeurImageAlt = cms?.coupDeCoeurImageAlt ?? 'Lever de soleil sur la Dune du Pilat'
+  const coupDeCoeurCta      = cms?.coupDeCoeurCta      ?? 'Réserver cette expérience'
+
   return (
     <main className="bg-[var(--white)]">
       <PageHero
         eyebrow="Sur mesure"
-        title="Balades privatisées sur le littoral Arcachonnais"
-        description="À pied, à vélo ou en bateau — choisissez votre jour, votre heure et votre thème. Votre visite devient unique et personnalisée."
-        image="https://upload.wikimedia.org/wikipedia/commons/a/a6/Bassin_d%27Arcachon_-_Cabanes_tchanqu%C3%A9es.jpg"
-        imageAlt="Cabanes tchanquées sur l'Île aux Oiseaux, Bassin d'Arcachon"
+        title={heroTitle}
+        description={heroDescription}
+        image={heroImage}
+        imageAlt={heroImageAlt}
       />
 
       {/* ── Modes de visite ─────────────────────────────────────────────────── */}
       <section className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {MODES.map(({ icon: Icon, label, desc }) => (
-            <div
-              key={label}
-              className="flex flex-col items-center text-center gap-4 p-8 rounded-[var(--radius-card)] border border-[var(--gray-100)]"
-              style={{ boxShadow: 'var(--shadow-card)' }}
-            >
-              <div className="w-14 h-14 rounded-full bg-[var(--primary-light)] flex items-center justify-center">
-                <Icon size={24} className="text-[var(--primary)]" />
+          {modes.map(({ icone, label, desc }) => {
+            const Icon = ICONS[icone] ?? Footprints
+            return (
+              <div
+                key={label}
+                className="flex flex-col items-center text-center gap-4 p-8 rounded-[var(--radius-card)] border border-[var(--gray-100)]"
+                style={{ boxShadow: 'var(--shadow-card)' }}
+              >
+                <div className="w-14 h-14 rounded-full bg-[var(--primary-light)] flex items-center justify-center">
+                  <Icon size={24} className="text-[var(--primary)]" />
+                </div>
+                <h3 className="font-[var(--font-serif)] text-[var(--text-primary)] text-xl">{label}</h3>
+                <p className="font-[var(--font-sans)] text-[var(--text-muted)] text-sm leading-relaxed">{desc}</p>
               </div>
-              <h3 className="font-[var(--font-serif)] text-[var(--text-primary)] text-xl">
-                {label}
-              </h3>
-              <p className="font-[var(--font-sans)] text-[var(--text-muted)] text-sm leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 
       {/* ── Galerie ─────────────────────────────────────────────────────────── */}
       <section className="w-full bg-[var(--off-white)] py-12">
         <div className="max-w-[1280px] mx-auto px-10 md:px-16">
-          <GalerieCarousel photos={GALERIE} />
+          <GalerieCarousel photos={galerie} />
         </div>
       </section>
 
       {/* ── Texte principal ─────────────────────────────────────────────────── */}
       <section className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-16">
         <div className="max-w-3xl mx-auto flex flex-col gap-5 font-[var(--font-sans)] text-[var(--text-primary)] text-base leading-relaxed">
-          <p>
-            Que ce soit à pied, en vélo ou en bateau, je vous propose de découvrir le Bassin
-            d'Arcachon, ses plages, son ambiance, ainsi que les <strong>quartiers Arcachonnais,
-            Pereire, Abatilles et Moulleau</strong> en famille ou entre amis.
-          </p>
-          <p>
-            Tout au long de l'année, je vous propose de privatiser votre guide pour découvrir
-            en toute liberté notre patrimoine. C'est pour vous l'occasion de choisir le jour,
-            l'heure, le thème de votre visite et d'en profiter — de vous construire des
-            souvenirs entre amis ou en famille. Toutes mes visites se déclinent en petit groupe,
-            pour partager des moments privilégiés.
-          </p>
-          <p>
-            En privatisant une guide conférencière locale, vous avez un véritable moment de
-            partage et de convivialité. Je peux répondre à toutes vos questions sur la visite
-            ou sur votre séjour en général, vous conseiller sur des établissements, des endroits
-            ou des animations à ne pas manquer.{' '}
-            <strong>Votre visite devient unique et personnalisée.</strong>
-          </p>
+          {texte.map((paragraphe, i) => (
+            <p key={i}>{paragraphe}</p>
+          ))}
         </div>
       </section>
 
@@ -115,11 +123,10 @@ export default function PrivatisationPage() {
                 Mon coup de cœur
               </span>
               <h2 className="font-[var(--font-serif)] text-[var(--text-primary)]">
-                "On a marché sur la Dune"
+                {coupDeCoeurTitre}
               </h2>
               <p className="font-[var(--font-sans)] text-[var(--text-primary)] leading-relaxed">
-                Soyez les premiers à laisser vos empreintes sur la dune du Pilat, lors d'un
-                lever de soleil — et profitez de la dune, rien que pour vous.
+                {coupDeCoeurTexte}
               </p>
               <Link
                 href="/contact"
@@ -130,13 +137,13 @@ export default function PrivatisationPage() {
                   'hover:bg-[var(--primary-dark)] transition-colors duration-200',
                 ].join(' ')}
               >
-                Réserver cette expérience
+                {coupDeCoeurCta}
               </Link>
             </div>
             <div className="relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden shadow-lg">
               <Image
-                src="https://tourismearcachon.fr/wp-content/uploads/2021/02/lever-du-soleil-1808.jpg"
-                alt="Lever de soleil sur la Dune du Pilat"
+                src={coupDeCoeurImage}
+                alt={coupDeCoeurImageAlt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

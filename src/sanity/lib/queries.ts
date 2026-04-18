@@ -97,6 +97,80 @@ export async function getArticle(slug: string): Promise<SanityArticle | null> {
   return staticArticles.find(a => a.slug === slug) ?? null
 }
 
+/* ── Types pages singletons ────────────────────────────────────────────────── */
+
+export type SanityPageGuide = {
+  heroTitle?:       string
+  heroDescription?: string
+  heroImage?:       string
+  heroImageAlt?:    string
+  photo?:           string
+  photoAlt?:        string
+  citation?:        string
+  bio?:             string[]
+  parcours?:        { annee: string; label: string }[]
+  specialites?:     { icone: string; label: string; desc: string }[]
+  affiliations?:    string[]
+}
+
+export type SanityPagePrivatisation = {
+  heroTitle?:           string
+  heroDescription?:     string
+  heroImage?:           string
+  heroImageAlt?:        string
+  modes?:               { icone: string; label: string; desc: string }[]
+  galerie?:             { src: string; alt: string }[]
+  texte?:               string[]
+  coupDeCoeurTitre?:    string
+  coupDeCoeurTexte?:    string
+  coupDeCoeurImage?:    string
+  coupDeCoeurImageAlt?: string
+  coupDeCoeurCta?:      string
+}
+
+export async function getPageGuide(): Promise<SanityPageGuide | null> {
+  try {
+    if (!client) return null
+    const data = await client.fetch<SanityPageGuide>(
+      `*[_type == "pageGuide"][0] {
+        heroTitle, heroDescription, heroImage, heroImageAlt,
+        photo, photoAlt, citation, bio,
+        parcours[]{ annee, label },
+        specialites[]{ icone, label, desc },
+        affiliations
+      }`,
+      {},
+      { next: { revalidate: 60 } }
+    )
+    if (data) return data
+  } catch (e) {
+    console.error('Sanity getPageGuide error:', e)
+  }
+  return null
+}
+
+export async function getPagePrivatisation(): Promise<SanityPagePrivatisation | null> {
+  try {
+    if (!client) return null
+    const data = await client.fetch<SanityPagePrivatisation>(
+      `*[_type == "pagePrivatisation"][0] {
+        heroTitle, heroDescription, heroImage, heroImageAlt,
+        modes[]{ icone, label, desc },
+        galerie[]{ src, alt },
+        texte,
+        coupDeCoeurTitre, coupDeCoeurTexte,
+        coupDeCoeurImage, coupDeCoeurImageAlt, coupDeCoeurCta
+      }`,
+      {},
+      { next: { revalidate: 60 } }
+    )
+    if (data) return data
+  } catch (e) {
+    console.error('Sanity getPagePrivatisation error:', e)
+  }
+  return null
+}
+
 export async function getTarifs(): Promise<SanityTarifs | null> {
   try {
     if (!client) return null
