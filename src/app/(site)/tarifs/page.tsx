@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Check, AlertCircle } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
+import { getTarifs } from '@/sanity/lib/queries'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Tarifs — Myriam Madec, Guide Conférencière Bassin d\'Arcachon',
@@ -9,7 +12,8 @@ export const metadata: Metadata = {
     'Tarifs des visites guidées privatisées sur le Bassin d\'Arcachon. Groupes, familles, scolaires — à partir de 200 €.',
 }
 
-const PRIX = [
+// Valeurs par défaut (utilisées si Sanity est vide)
+const PRIX_DEFAULT = [
   { duree: '2 heures',        prix: '200 €' },
   { duree: '3 heures',        prix: '230 €' },
   { duree: '4 heures',        prix: '260 €' },
@@ -19,7 +23,7 @@ const PRIX = [
   { duree: 'Journée entière', prix: '400 €' },
 ]
 
-const CONDITIONS = [
+const CONDITIONS_DEFAULT = [
   'Tarifs TTC (toutes taxes comprises).',
   'Prestations le 1er mai et le 1er janvier majorées au double.',
   'Réservations de plus d\'un jour : acompte de 30 % à la réservation.',
@@ -27,12 +31,17 @@ const CONDITIONS = [
   'Dégustations, balades en bateau et location de vélos non compris.',
 ]
 
-const ANNULATION = [
+const ANNULATION_DEFAULT = [
   { delai: 'Annulation à 48h',  montant: '50 % du montant de la prestation' },
   { delai: 'Annulation à 24h',  montant: '100 % du montant de la prestation' },
 ]
 
-export default function TarifsPage() {
+export default async function TarifsPage() {
+  const sanityTarifs = await getTarifs()
+
+  const PRIX       = sanityTarifs?.lignes     ?? PRIX_DEFAULT
+  const CONDITIONS = sanityTarifs?.conditions  ?? CONDITIONS_DEFAULT
+  const ANNULATION = sanityTarifs?.annulation  ?? ANNULATION_DEFAULT
   return (
     <main className="bg-[var(--white)]">
       <PageHero

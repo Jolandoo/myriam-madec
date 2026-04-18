@@ -5,28 +5,30 @@ import { motion, AnimatePresence } from 'framer-motion'
 import VisiteCard from './VisiteCard'
 import FilterBar, { type FilterValue } from './FilterBar'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { visites } from '@/data/visites'
+import { type Visite } from '@/data/visites'
 
 // ─── Composant ────────────────────────────────────────────────────────────────
 
-export default function VisitesGrid() {
+interface Props { visites: Visite[] }
+
+export default function VisitesGrid({ visites }: Props) {
   const [activeFilter, setActiveFilter] = useState<FilterValue>('all')
 
   const filtered = useMemo(
     () => activeFilter === 'all'
       ? visites
       : visites.filter((v) => v.categorie === activeFilter),
-    [activeFilter],
+    [activeFilter, visites],
   )
 
   // Counts per category for FilterBar badges
   const counts = useMemo(() => ({
-    all:             visites.length,
-    pied:            visites.filter((v) => v.categorie === 'pied').length,
-    velo:            visites.filter((v) => v.categorie === 'velo').length,
+    all:               visites.length,
+    pied:              visites.filter((v) => v.categorie === 'pied').length,
+    velo:              visites.filter((v) => v.categorie === 'velo').length,
     'velo-electrique': visites.filter((v) => v.categorie === 'velo-electrique').length,
-    bateau:          visites.filter((v) => v.categorie === 'bateau').length,
-  }), [])
+    bateau:            visites.filter((v) => v.categorie === 'bateau').length,
+  }), [visites])
 
   return (
     <section id="visites" className="section-padding bg-[var(--gray-50)]">

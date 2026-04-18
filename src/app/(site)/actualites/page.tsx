@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import PageHero from '@/components/layout/PageHero'
-import { articles } from '@/data/articles'
+import { getArticles } from '@/sanity/lib/queries'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Actualités — Myriam Madec, Guide Conférencière Bassin d\'Arcachon',
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
     'Suivez les actualités de Myriam Madec — nouvelles visites, journées des guides, événements autour du Bassin d\'Arcachon.',
 }
 
-export default function ActualitesPage() {
+export default async function ActualitesPage() {
+  const articles = await getArticles()
+
   return (
     <main className="bg-[var(--white)]">
       <PageHero
@@ -29,7 +33,6 @@ export default function ActualitesPage() {
               className="group flex flex-col rounded-[var(--radius-card)] overflow-hidden border border-[var(--gray-100)] bg-[var(--white)] transition-all duration-300 hover:-translate-y-1"
               style={{ boxShadow: 'var(--shadow-card)' }}
             >
-              {/* Image */}
               <div className="relative overflow-hidden" style={{ paddingTop: '62%' }}>
                 <Image
                   src={article.image}
@@ -40,8 +43,6 @@ export default function ActualitesPage() {
                   priority={i < 3}
                 />
               </div>
-
-              {/* Contenu */}
               <div className="flex flex-col gap-3 p-5 flex-1">
                 <time className="font-[var(--font-sans)] text-[11px] font-semibold uppercase tracking-[2px] text-[var(--primary)]">
                   {article.date}

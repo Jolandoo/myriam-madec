@@ -3,11 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, Calendar } from 'lucide-react'
-import { articles } from '@/data/articles'
+import { getArticle, getArticles } from '@/sanity/lib/queries'
 import PhotoGallery from '@/components/ui/PhotoGallery'
 
+export const revalidate = 60
+
 /* ── Static params ────────────────────────────────────────────────────────── */
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const articles = await getArticles()
   return articles.map((a) => ({ slug: a.slug }))
 }
 
@@ -16,7 +19,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params
-  const article = articles.find((a) => a.slug === slug)
+  const article = await getArticle(slug)
   if (!article) return {}
   return {
     title: `${article.titre} — Myriam Madec, Guide Conférencière`,
@@ -29,10 +32,10 @@ export default async function ArticlePage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params
-  const article = articles.find((a) => a.slug === slug)
+  const [article, allArticles] = await Promise.all([getArticle(slug), getArticles()])
   if (!article) notFound()
 
-  const related = articles
+  const related = allArticles
     .filter((a) => a.slug !== article.slug)
     .slice(0, 3)
 

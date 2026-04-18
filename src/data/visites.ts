@@ -10,8 +10,9 @@ export interface Visite {
   // Pour remplacer par une image locale : copier la photo dans public/images/
   // et mettre le chemin ici, ex: '/images/bunker-502.jpg'
   image: string        // card catalogue (thumbnail WP)
-  imageDetail?: string // hero page individuelle (HD)
-  imageCredit?: string // crédit photo affiché sur la page détail
+  imageDetail?: string  // hero page individuelle (HD)
+  imageCredit?: string  // crédit photo affiché sur la page détail
+  programme?: string    // déroulé de la visite étape par étape
   reservation: 'office-tourisme' | 'contact-direct'
   reservationUrl?: string
   tags: string[]

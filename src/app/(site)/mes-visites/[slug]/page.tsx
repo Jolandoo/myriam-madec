@@ -3,10 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Clock, MapPin, Users, Star, ArrowLeft, ExternalLink } from 'lucide-react'
-import { visites, categorieLabels, niveauLabels, type Visite } from '@/data/visites'
+import { categorieLabels, niveauLabels, type Visite } from '@/data/visites'
+import { getVisites, getVisite } from '@/sanity/lib/queries'
+
+export const revalidate = 60
 
 /* ── Static params ────────────────────────────────────────────────────────── */
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const visites = await getVisites()
   return visites.map((v) => ({ slug: v.slug }))
 }
 
@@ -15,7 +19,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params
-  const visite = visites.find((v) => v.slug === slug)
+  const visite = await getVisite(slug)
   if (!visite) return {}
   return {
     title: `${visite.titre} — Myriam Madec, Guide Conférencière`,
@@ -42,10 +46,10 @@ export default async function VisitePage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params
-  const visite = visites.find((v) => v.slug === slug)
+  const [visite, allVisites] = await Promise.all([getVisite(slug), getVisites()])
   if (!visite) notFound()
 
-  const related = visites
+  const related = allVisites
     .filter((v) => v.slug !== visite.slug && v.categorie === visite.categorie)
     .slice(0, 3)
 
@@ -148,18 +152,19 @@ export default async function VisitePage(
               </p>
             </div>
 
-            {/* Au programme — lorem ipsum si pas encore de contenu */}
-            <div className="flex flex-col gap-4">
-              <h2 className="font-[var(--font-serif)] text-[var(--text-primary)] text-2xl">Au programme</h2>
-              <div className="bg-[var(--off-white)] rounded-[var(--radius-card)] p-6 border border-[var(--gray-100)]">
-                <p className="font-[var(--font-sans)] text-[var(--text-muted)] text-sm italic leading-relaxed">
-                  {/* TODO — Myriam : ajouter le détail du programme étape par étape */}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+            {/* Au programme */}
+            {visite.programme && (
+              <div className="flex flex-col gap-4">
+                <h2 className="font-[var(--font-serif)] text-[var(--text-primary)] text-2xl">Au programme</h2>
+                <div className="bg-[var(--off-white)] rounded-[var(--radius-card)] p-6 border border-[var(--gray-100)] flex flex-col gap-3">
+                  {visite.programme.split('\n').map((etape, i) => etape.trim() && (
+                    <p key={i} className="font-[var(--font-sans)] text-[var(--text-primary)] text-sm leading-relaxed">
+                      {etape}
+                    </p>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Infos pratiques */}
             <div className="flex flex-col gap-4">

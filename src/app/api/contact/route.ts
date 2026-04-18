@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     const { error } = await resend.emails.send({
       from: 'Arcachon Tourisme - Myriam Madec <onboarding@resend.dev>',
-      to:   ['jolann.madec21@gmail.com'],
+      to:   [process.env.CONTACT_EMAIL ?? 'jolann.madec21@gmail.com'],
       replyTo: email,
       subject: `Nouveau message de ${prenom} ${nom} — tourismearcachon.fr`,
       html: `

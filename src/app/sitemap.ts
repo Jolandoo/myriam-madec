@@ -1,10 +1,11 @@
 import type { MetadataRoute } from 'next'
-import { visites } from '@/data/visites'
-import { articles } from '@/data/articles'
+import { getVisites, getArticles } from '@/sanity/lib/queries'
 
 const BASE_URL = 'https://www.tourismearcachon.fr'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [visites, articles] = await Promise.all([getVisites(), getArticles()])
+
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL,                        lastModified: new Date(), priority: 1.0,  changeFrequency: 'monthly'  },
     { url: `${BASE_URL}/mes-visites`,       lastModified: new Date(), priority: 0.9,  changeFrequency: 'monthly'  },
