@@ -75,6 +75,9 @@ NEXT_PUBLIC_SANITY_PROJECT_ID=
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=            # Droits write, pour le script de migration uniquement
 
+# Studio
+STUDIO_SECRET=               # Mot de passe d'accès au Studio (/studio-login)
+
 # Contact
 RESEND_API_KEY=
 CONTACT_EMAIL=
@@ -109,6 +112,22 @@ src/
 sanity.config.ts
 scripts/migrate-to-sanity.mjs
 ```
+
+---
+
+## Authentification Studio
+
+L'accès à `/studio` est protégé par un middleware Next.js. Sans cookie valide, toute requête est redirigée vers `/studio-login`.
+
+```
+GET /studio  →  middleware  →  cookie valide ?  →  Studio
+                                      ↓ non
+                              /studio-login (form)
+                                      ↓ mot de passe OK
+                              set cookie httpOnly (30j)  →  /studio
+```
+
+Le secret est défini par la variable d'environnement `STUDIO_SECRET`. Le cookie est `httpOnly`, `secure` en production, `sameSite: lax`.
 
 ---
 

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Bike, Footprints, Sailboat } from 'lucide-react'
 import PageHero from '@/components/layout/PageHero'
+import GalerieCarousel from '@/components/ui/GalerieCarousel'
 
 export const metadata: Metadata = {
   title: 'Privatisation — Myriam Madec, Guide Conférencière Bassin d\'Arcachon',
@@ -74,19 +75,9 @@ export default function PrivatisationPage() {
       </section>
 
       {/* ── Galerie ─────────────────────────────────────────────────────────── */}
-      <section className="w-full bg-[var(--off-white)] py-12 overflow-hidden">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-10 md:px-16 max-w-[1280px] mx-auto">
-          {GALERIE.map(({ src, alt }) => (
-            <div key={alt} className="relative aspect-[4/3] rounded-xl overflow-hidden">
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-          ))}
+      <section className="w-full bg-[var(--off-white)] py-12">
+        <div className="max-w-[1280px] mx-auto px-10 md:px-16">
+          <GalerieCarousel photos={GALERIE} />
         </div>
       </section>
 
