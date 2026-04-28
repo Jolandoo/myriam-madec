@@ -64,11 +64,11 @@ export default defineType({
     }),
 
     /* ── Coup de cœur ───────────────────────────────────────────────────── */
-    defineField({ name: 'coupDeCoeurTitre', title: 'Coup de cœur — Titre',     type: 'localeString' }),
-    defineField({ name: 'coupDeCoeurTexte', title: 'Coup de cœur — Texte',     type: 'localeText' }),
-    defineField({ name: 'coupDeCoeurImage', title: 'Coup de cœur — Image (URL)', type: 'url' }),
-    defineField({ name: 'coupDeCoeurImageAlt', title: 'Coup de cœur — Alt image', type: 'string' }),
-    defineField({ name: 'coupDeCoeurCta',  title: 'Coup de cœur — Texte bouton', type: 'localeString' }),
+    defineField({ name: 'coupDeCoeurTitre', title: 'Coup de cœur · Titre',     type: 'localeString' }),
+    defineField({ name: 'coupDeCoeurTexte', title: 'Coup de cœur · Texte',     type: 'localeText' }),
+    defineField({ name: 'coupDeCoeurImage', title: 'Coup de cœur · Image (URL)', type: 'url' }),
+    defineField({ name: 'coupDeCoeurImageAlt', title: 'Coup de cœur · Alt image', type: 'string' }),
+    defineField({ name: 'coupDeCoeurCta',  title: 'Coup de cœur · Texte bouton', type: 'localeString' }),
   ],
   preview: { prepare: () => ({ title: 'Privatisation' }) },
 })

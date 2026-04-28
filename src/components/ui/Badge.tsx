@@ -8,7 +8,7 @@ interface BadgeProps {
   className?: string
 }
 
-// Toutes les variantes utilisent le bleu principal — sobre, cohérent
+// Toutes les variantes utilisent le bleu principal  - sobre, cohérent
 const variantStyles: Record<BadgeVariant, string> = {
   pied:             'bg-[var(--primary-light)] text-[var(--primary)]',
   velo:             'bg-[var(--primary-light)] text-[var(--primary)]',

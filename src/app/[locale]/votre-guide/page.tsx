@@ -23,22 +23,22 @@ const DIPLOMES_DEFAULT = [
 ]
 
 const SPECIALITES_DEFAULT = [
-  { icone: 'heart',      label: 'Histoire locale',  desc: 'L\'occupation, les bains de mer, les origines d\'Arcachon — 30 ans de passion pour l\'histoire du Bassin.' },
-  { icone: 'award',      label: 'Patrimoine',        desc: 'Architecture de la Ville d\'Hiver, ostréiculture, dune du Pilat — un territoire d\'une richesse exceptionnelle.' },
+  { icone: 'heart',      label: 'Histoire locale',  desc: 'L\'occupation, les bains de mer, les origines d\'Arcachon : 30 ans de passion pour l\'histoire du Bassin.' },
+  { icone: 'award',      label: 'Patrimoine',        desc: 'Architecture de la Ville d\'Hiver, ostréiculture, dune du Pilat. Un territoire d\'une richesse exceptionnelle.' },
   { icone: 'globe',      label: 'Multilingue',       desc: 'Visites proposées en français, anglais et espagnol.' },
   { icone: 'graduation', label: 'Pédagogie',         desc: 'Programmes scolaires adaptés de la maternelle au lycée, en lien avec les programmes officiels.' },
 ]
 
 const AFFILIATIONS_DEFAULT = [
   'Association des Guides de Nouvelle-Aquitaine (AGNA)',
-  'FNGIC — Fédération Nationale des Guides Interprètes et Conférenciers',
-  'B\'A — Marque Territoriale Bassin d\'Arcachon',
+  'FNGIC (Fédération Nationale des Guides Interprètes et Conférenciers)',
+  'B\'A (Marque Territoriale Bassin d\'Arcachon)',
   'Ecotours Arcachon',
   'Les Balades Tchanquées',
 ]
 
 const BIO_DEFAULT = [
-  'Passionnée par le patrimoine et l\'histoire du Bassin d\'Arcachon, je vous accompagne depuis plus de 30 ans à la découverte d\'un territoire d\'une richesse exceptionnelle. Guide Interprète Nationale officielle, je propose des visites en français, anglais et espagnol, pour tous les publics — familles, groupes, scolaires, entreprises.',
+  'Passionnée par le patrimoine et l\'histoire du Bassin d\'Arcachon, je vous accompagne depuis plus de 30 ans à la découverte d\'un territoire d\'une richesse exceptionnelle. Guide Interprète Nationale officielle, je propose des visites en français, anglais et espagnol, pour tous les publics : familles, groupes, scolaires, entreprises.',
   'Mon ambition : vous offrir bien plus qu\'une visite. Un moment de partage, de curiosité et d\'émerveillement. Qu\'il s\'agisse des ruelles de la Ville d\'Hiver, des prés salés ou du lever de soleil sur la Dune du Pilat, chaque sortie est une rencontre authentique avec le Bassin.',
 ]
 

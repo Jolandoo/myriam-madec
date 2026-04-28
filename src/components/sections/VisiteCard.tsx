@@ -32,7 +32,7 @@ export default function VisiteCard({ visite }: VisiteCardProps) {
       <div className="relative overflow-hidden" style={{ paddingTop: '62%' }}>
         <Image
           src={visite.image}
-          alt={`${visite.titre} — ${visite.sousTitre}`}
+          alt={`${visite.titre}, ${visite.sousTitre}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"

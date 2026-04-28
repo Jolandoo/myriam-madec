@@ -36,7 +36,7 @@ const GALERIE_DEFAULT = [
 
 const TEXTE_DEFAULT = [
   'Que ce soit à pied, en vélo ou en bateau, je vous propose de découvrir le Bassin d\'Arcachon, ses plages, son ambiance, ainsi que les quartiers Arcachonnais, Pereire, Abatilles et Moulleau en famille ou entre amis.',
-  'Tout au long de l\'année, je vous propose de privatiser votre guide pour découvrir en toute liberté notre patrimoine. C\'est pour vous l\'occasion de choisir le jour, l\'heure, le thème de votre visite et d\'en profiter — de vous construire des souvenirs entre amis ou en famille.',
+  'Tout au long de l\'année, je vous propose de privatiser votre guide pour découvrir en toute liberté notre patrimoine. C\'est pour vous l\'occasion de choisir le jour, l\'heure, le thème de votre visite et d\'en profiter. Construisez-vous des souvenirs entre amis ou en famille.',
   'En privatisant une guide conférencière locale, vous avez un véritable moment de partage et de convivialité. Je peux répondre à toutes vos questions sur la visite ou sur votre séjour en général, vous conseiller sur des établissements, des endroits ou des animations à ne pas manquer.',
 ]
 
@@ -58,7 +58,7 @@ export default async function PrivatisationPage(
   const galerie             = cms?.galerie?.length     ? cms.galerie  : GALERIE_DEFAULT
   const texte               = cms?.texte?.length       ? cms.texte    : TEXTE_DEFAULT
   const coupDeCoeurTitre    = cms?.coupDeCoeurTitre    ?? '"On a marché sur la Dune"'
-  const coupDeCoeurTexte    = cms?.coupDeCoeurTexte    ?? 'Soyez les premiers à laisser vos empreintes sur la dune du Pilat, lors d\'un lever de soleil — et profitez de la dune, rien que pour vous.'
+  const coupDeCoeurTexte    = cms?.coupDeCoeurTexte    ?? 'Soyez les premiers à laisser vos empreintes sur la dune du Pilat, lors d\'un lever de soleil, et profitez de la dune rien que pour vous.'
   const coupDeCoeurImage    = cms?.coupDeCoeurImage    ?? 'https://tourismearcachon.fr/wp-content/uploads/2021/02/lever-du-soleil-1808.jpg'
   const coupDeCoeurImageAlt = cms?.coupDeCoeurImageAlt ?? 'Lever de soleil sur la Dune du Pilat'
   const coupDeCoeurCta      = cms?.coupDeCoeurCta      ?? 'Réserver cette expérience'

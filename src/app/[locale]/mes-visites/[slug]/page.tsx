@@ -22,7 +22,7 @@ export async function generateMetadata(
   const visite = await getVisite(slug, locale)
   if (!visite) return {}
   return {
-    title: `${visite.titre} — ${t('title.template').replace('%s', '')}`,
+    title: `${visite.titre} | ${t('title.template').replace('%s', '')}`,
     description: visite.descriptionCourte,
   }
 }

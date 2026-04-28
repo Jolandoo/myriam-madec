@@ -23,7 +23,7 @@ function FlagEN({ className }: { className?: string }) {
         <clipPath id="diag-tl"><polygon points="0,0 640,0 0,480" /></clipPath>
         <clipPath id="diag-br"><polygon points="640,0 640,480 0,480" /></clipPath>
       </defs>
-      {/* Top-left — Stars & Stripes */}
+      {/* Top-left  - Stars & Stripes */}
       <g clipPath="url(#diag-tl)">
         <path fill="#B22234" d="M0 0h640v480H0z" />
         <path fill="#FFF" d="M0 37h640v37H0zm0 74h640v37H0zm0 73h640v37H0zm0 74h640v37H0zm0 73h640v37H0zm0 74h640v37H0z" />
@@ -40,7 +40,7 @@ function FlagEN({ className }: { className?: string }) {
           <circle cx="45" cy="216" r="8" /><circle cx="90" cy="216" r="8" /><circle cx="135" cy="216" r="8" /><circle cx="180" cy="216" r="8" /><circle cx="225" cy="216" r="8" />
         </g>
       </g>
-      {/* Bottom-right — Union Jack */}
+      {/* Bottom-right  - Union Jack */}
       <g clipPath="url(#diag-br)">
         <path fill="#012169" d="M0 0h640v480H0z" />
         <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z" />

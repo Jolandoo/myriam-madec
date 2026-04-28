@@ -5,7 +5,7 @@ interface PageHeroProps {
   eyebrow?: string
   title: string
   description?: string
-  image?: string          // URL ou chemin local — active le mode photo de fond
+  image?: string          // URL ou chemin local  - active le mode photo de fond
   imageAlt?: string
   children?: ReactNode
 }

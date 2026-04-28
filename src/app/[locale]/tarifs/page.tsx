@@ -29,7 +29,7 @@ const CONDITIONS_DEFAULT = [
   'Tarifs TTC (toutes taxes comprises).',
   'Prestations le 1er mai et le 1er janvier majorées au double.',
   'Réservations de plus d\'un jour : acompte de 30 % à la réservation.',
-  'Entrées de sites et repas du guide non inclus — à la charge du client.',
+  'Entrées de sites et repas du guide non inclus, à la charge du client.',
   'Dégustations, balades en bateau et location de vélos non compris.',
 ]
 

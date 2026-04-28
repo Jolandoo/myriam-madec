@@ -22,7 +22,7 @@ export async function generateMetadata(
   const article = await getArticle(slug, locale)
   if (!article) return {}
   return {
-    title: `${article.titre} — ${t('title.template').replace('%s', '')}`,
+    title: `${article.titre} | ${t('title.template').replace('%s', '')}`,
     description: article.extrait,
   }
 }

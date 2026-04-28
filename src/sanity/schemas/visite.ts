@@ -21,8 +21,8 @@ export default defineType({
     defineField({ name: 'duree',            title: 'Durée (ex: 2h, 2-3h)', type: 'string' }),
     defineField({ name: 'description',      title: 'Description longue',   type: 'localeText' }),
     defineField({ name: 'descriptionCourte',title: 'Description courte (card, ~120 car.)', type: 'localeString' }),
-    defineField({ name: 'image',            title: 'Image card (catalogue) — coller URL', type: 'string' }),
-    defineField({ name: 'imageDetail',      title: 'Image hero (page détail) — coller URL', type: 'string' }),
+    defineField({ name: 'image',            title: 'Image card (catalogue), coller URL', type: 'string' }),
+    defineField({ name: 'imageDetail',      title: 'Image hero (page détail), coller URL', type: 'string' }),
     defineField({ name: 'imageCredit',      title: 'Crédit photo (ex: © CDT Gironde)', type: 'string' }),
     defineField({
       name: 'reservation', title: 'Mode de réservation', type: 'string',

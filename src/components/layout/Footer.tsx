@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="w-full max-w-[1280px] mx-auto px-10 md:px-16 py-10 lg:py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
-          {/* Colonne 1 — Identité */}
+          {/* Colonne 1  - Identité */}
           <div className="flex flex-col gap-5 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 group w-fit" aria-label={t('accueil')}>
               <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-white/20 shrink-0">
@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Colonne 2 — Visites */}
+          {/* Colonne 2  - Visites */}
           <div className="flex flex-col gap-5">
             <h3 className="font-[var(--font-sans)] text-xs font-semibold uppercase tracking-[2px] text-white/40">
               {t('visites')}
@@ -104,7 +104,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Colonne 3 — Informations */}
+          {/* Colonne 3  - Informations */}
           <div className="flex flex-col gap-5">
             <h3 className="font-[var(--font-sans)] text-xs font-semibold uppercase tracking-[2px] text-white/40">
               {t('informations')}
@@ -123,7 +123,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Colonne 4 — Réservation CTA */}
+          {/* Colonne 4  - Réservation CTA */}
           <div className="flex flex-col gap-5">
             <h3 className="font-[var(--font-sans)] text-xs font-semibold uppercase tracking-[2px] text-white/40">
               {t('bookVisit')}

@@ -71,7 +71,7 @@ export async function POST(request: Request) {
       from: 'Arcachon Tourisme - Myriam Madec <onboarding@resend.dev>',
       to:   [contactEmail],
       replyTo: email,
-      subject: `Nouveau message de ${safePrenom} ${safeNom} — tourismearcachon.fr`,
+      subject: `Nouveau message de ${safePrenom} ${safeNom} · tourismearcachon.fr`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f9f8f6;">
           <div style="background: #1B4F6B; padding: 24px 32px; border-radius: 12px 12px 0 0;">
