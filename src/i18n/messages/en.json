@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "title": {
+      "default": "Arcachon Tourism — Myriam Madec — Official Tour Guide, Arcachon Bay",
+      "template": "%s — Myriam Madec, Tour Guide"
+    },
+    "description": "Discover Arcachon Bay with Myriam Madec, official tour guide since 1994. Walking, cycling and boat tours — Arcachon, Dune du Pilat, Cap Ferret, Bird Island.",
+    "keywords": "Arcachon tour guide, guided tour Arcachon Bay, Arcachon tourism, Dune du Pilat guided tour, official guide Arcachon, walking tour Arcachon, Bird Island tour, cycling tour Arcachon, boat trip Arcachon Bay, tourism Arcachon",
+    "ogTitle": "Myriam Madec — Official Tour Guide, Arcachon Bay",
+    "ogDescription": "Authentic guided tours of Arcachon Bay — on foot, by bike, by boat. Official guide since 1994.",
+    "ogSiteName": "Myriam Madec — Tour Guide",
+    "twitterTitle": "Myriam Madec — Official Tour Guide, Arcachon Bay",
+    "twitterDescription": "Walking, cycling and boat guided tours of Arcachon Bay."
+  },
+  "nav": {
+    "mesVisites": "Guided tours",
+    "privatisation": "Private tours",
+    "tarifs": "Prices",
+    "actualites": "News",
+    "votreGuide": "Your guide",
+    "contactReservation": "Contact & Booking",
+    "backToHome": "Back to home — Myriam Madec, Tour Guide",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "guideConferenciere": "Tour Guide"
+  },
+  "hero": {
+    "eyebrow": "Official Tour Guide · Arcachon Bay",
+    "title": "Guided tours of Arcachon Bay",
+    "subtitle": "Unforgettable tours etched in your memories — on foot, by bike, by boat.",
+    "cta": "Discover my tours",
+    "ctaContact": "Contact me",
+    "banner": "Main banner",
+    "countWalking": "walking tours",
+    "countBike": "cycling tours",
+    "countBoat": "boat tour"
+  },
+  "visitesGrid": {
+    "eyebrow": "My tours",
+    "title": "{count} ways to discover",
+    "titleAccent": "the Bay",
+    "subtitle": "On foot, by e-bike, by bike or by boat — every tour tells a different story.",
+    "empty": "No tours in this category.",
+    "filterLabel": "Filter tours"
+  },
+  "filters": {
+    "all": "All",
+    "pied": "On foot",
+    "velo-electrique": "E-bike",
+    "velo": "By bike",
+    "bateau": "By boat"
+  },
+  "visiteCard": {
+    "viewTour": "View tour",
+    "seeLabel": "View tour: {title}"
+  },
+  "categories": {
+    "pied": "On foot",
+    "velo": "By bike",
+    "velo-electrique": "E-bike",
+    "bateau": "By boat"
+  },
+  "levels": {
+    "facile": "Easy",
+    "modere": "Moderate",
+    "sportif": "Athletic"
+  },
+  "about": {
+    "eyebrow": "Your guide",
+    "quote": "\"Making your stay an enriching and unforgettable experience — that's been my mission for 30 years.\"",
+    "bio": "Passionate about archaeology since childhood, Myriam discovered her true calling in sharing knowledge. She knows Arcachon Bay inside out — from the tchanquées huts to the archaeological digs beneath the Dune du Pilat, from the fish markets at dawn to the hidden paths of the Ville d'Hiver.",
+    "guideOfficielle": "Official guide",
+    "depuis": "since 1994",
+    "credential1": "National Interpreter Guide since 1997",
+    "credential2": "Regional Accompanying Guide since 1995",
+    "credential3": "Member of FNGIC & Guides de Nouvelle-Aquitaine",
+    "credential4": "Tours in French, English and Spanish",
+    "learnMore": "Learn more about Myriam"
+  },
+  "cta": {
+    "eyebrow": "Take action",
+    "title": "Ready to discover Arcachon Bay?",
+    "subtitle": "Unforgettable tours etched in your memories — book now or contact Myriam for a bespoke experience.",
+    "bookTour": "Book a tour",
+    "bookTourDesc": "Browse the catalogue and choose your experience.",
+    "requestQuote": "Request a quote",
+    "requestQuoteDesc": "Groups, schools, businesses — tailor-made tours.",
+    "phoneDesc": "Available every day to answer your questions."
+  },
+  "footer": {
+    "description": "Official National Interpreter Guide of Arcachon Bay since 1994. Tours in French, English and Spanish.",
+    "location": "Arcachon Bay, Gironde",
+    "visites": "Tours",
+    "allVisites": "All tours",
+    "villeHiver": "Ville d'Hiver",
+    "dunePilat": "Dune du Pilat at sunrise",
+    "baladesBateau": "Boat tours",
+    "informations": "Information",
+    "bookVisit": "Book a tour",
+    "bookVisitDesc": "Groups, families, schools — contact Myriam to create your bespoke tour.",
+    "contact": "Get in touch",
+    "copyright": "© {year} Myriam Madec — Official Tour Guide, Arcachon Bay",
+    "fngic": "FNGIC Member",
+    "guidesNA": "Guides de Nouvelle-Aquitaine",
+    "accueil": "Home"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact me",
+    "description": "To book a tour, request a quote or simply ask a question — I reply within 24 hours.",
+    "imageAlt": "Aerial view of Arcachon Bay and the Dune du Pilat",
+    "nom": "Last name",
+    "prenom": "First name",
+    "email": "Email",
+    "telephone": "Phone",
+    "phonePlaceholder": "+33 6 00 00 00 00",
+    "message": "Message",
+    "messagePlaceholder": "Describe your tour project — type, number of people, preferred date...",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sentTitle": "Message sent!",
+    "sentMessage": "Thank you for your message. I will get back to you as soon as possible.",
+    "error": "An error occurred. Please try again or contact me directly by phone.",
+    "guideTitle": "Myriam Madec",
+    "guideSubtitle": "Official Tour Guide of Arcachon Bay · Tours in French, English and Spanish.",
+    "availableTitle": "Tours available",
+    "available1": "All year round by reservation",
+    "available2": "Weekdays and weekends",
+    "available3": "Groups from 10 people",
+    "available4": "Families and individuals welcome",
+    "metaTitle": "Contact — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "Contact Myriam Madec to book a guided tour of Arcachon Bay or request a quote."
+  },
+  "tarifs": {
+    "eyebrow": "Prices",
+    "title": "Group & private tour prices",
+    "description": "All prices are per group, regardless of size — on foot, by bike or by boat.",
+    "imageAlt": "Port of Arcachon",
+    "priceByDuration": "Prices by duration",
+    "groupMinimum": "Walking groups: minimum 30 people · Cycling groups: minimum 15 people",
+    "cancellationTitle": "Cancellation policy",
+    "conditionsTitle": "Terms & conditions",
+    "quoteTitle": "Request a quote",
+    "quoteDesc": "For schools, businesses or special groups, contact me directly.",
+    "contactMe": "Contact me",
+    "metaTitle": "Prices — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "Prices for private guided tours of Arcachon Bay. Groups, families, schools — from €200."
+  },
+  "mesVisites": {
+    "eyebrow": "Official Tour Guide",
+    "title": "My guided tours",
+    "description": "Walking through the streets of the Ville d'Hiver, cycling along the coast, or sailing to Bird Island — every tour is a meeting with the Bay.",
+    "imageAlt": "Sunset over Arcachon Bay",
+    "metaTitle": "Guided tours — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "13 guided tours of Arcachon Bay: on foot, by e-bike, by bike or by boat. History, heritage, nature and local gastronomy."
+  },
+  "visiteDetail": {
+    "allVisites": "All tours",
+    "family": "Family",
+    "smallGroup": "Small group",
+    "theVisit": "The tour",
+    "schedule": "What's included",
+    "practicalInfo": "Practical information",
+    "duration": "Duration",
+    "mode": "Mode",
+    "level": "Level",
+    "children": "Children",
+    "childrenYes": "Family-friendly",
+    "childrenNo": "Adults and teens",
+    "reservation": "Booking",
+    "reservationOffice": "Tourist office",
+    "reservationDirect": "Direct contact",
+    "languages": "Languages",
+    "languagesValue": "French · English · Spanish",
+    "bookOnline": "Book online",
+    "yourGuide": "Your guide",
+    "guideDesc": "Official National Interpreter Guide of Arcachon Bay since 1994.",
+    "learnMore": "Learn more →",
+    "similarVisits": "Similar tours"
+  },
+  "actualites": {
+    "eyebrow": "News",
+    "title": "Latest news",
+    "description": "New tours, guide days, events — follow life around Arcachon Bay.",
+    "imageAlt": "Sunrise at Cap Ferret, Arcachon Bay",
+    "readMore": "Read more →",
+    "metaTitle": "News — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "Follow Myriam Madec's news — new tours, guide days, events around Arcachon Bay."
+  },
+  "articleDetail": {
+    "allArticles": "All news",
+    "photos": "Photos",
+    "yourGuide": "Your guide",
+    "guideDesc": "Official National Interpreter Guide of Arcachon Bay since 1994.",
+    "learnMore": "Learn more →",
+    "bookVisit": "Book a tour",
+    "bookVisitDesc": "Discover all guided tours of Arcachon Bay.",
+    "seeVisits": "See tours",
+    "otherArticles": "Other news"
+  },
+  "votreGuide": {
+    "eyebrow": "Your guide",
+    "defaultHeroTitle": "Myriam Madec",
+    "defaultHeroDescription": "Official National Interpreter Guide of Arcachon Bay since 1994.",
+    "defaultHeroImageAlt": "Eyrac Pier on Arcachon beach",
+    "since": "Since 1994",
+    "officialGuide": "Official guide",
+    "parcours": "Career",
+    "bookVisit": "Book a tour",
+    "specialities": "My specialities",
+    "affiliations": "Professional affiliations",
+    "metaTitle": "Your guide — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "Myriam Madec, Official National Interpreter Guide of Arcachon Bay since 1994. Discover her background, specialities and passion for the region."
+  },
+  "privatisation": {
+    "eyebrow": "Bespoke",
+    "defaultHeroTitle": "Private tours along the Arcachon coast",
+    "defaultHeroDescription": "On foot, by bike or by boat — choose your day, time and theme. Your tour becomes unique and personalised.",
+    "defaultHeroImageAlt": "Tchanquées huts on Bird Island, Arcachon Bay",
+    "coupDeCoeurEyebrow": "My favourite",
+    "ctaTitle": "Create your bespoke tour",
+    "ctaDesc": "Groups, families, schools — contact me to build an experience that's just right for you.",
+    "contactMe": "Contact me",
+    "metaTitle": "Private tours — Myriam Madec, Tour Guide, Arcachon Bay",
+    "metaDescription": "Book your own private tour guide for a bespoke tour of Arcachon Bay — on foot, by bike or by boat, with family, friends or as a group."
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "fr": "FR",
+    "en": "EN"
+  }
+}
