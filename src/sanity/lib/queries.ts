@@ -1,6 +1,10 @@
 import { client } from '../client'
-import { visites as staticVisites, type Visite } from '@/data/visites'
-import { articles as staticArticles, type Article } from '@/data/articles'
+import { resolveVisites, type Visite } from '@/data/visites'
+import { resolveArticles, type Article } from '@/data/articles'
+
+type FallbackLocale = 'fr' | 'en' | 'es'
+const isLocale = (l: string): l is FallbackLocale => l === 'fr' || l === 'en' || l === 'es'
+const fb = (l: string): FallbackLocale => (isLocale(l) ? l : 'fr')
 
 /* ── Types Sanity (même structure que les fichiers statiques) ──────────────── */
 
@@ -44,7 +48,7 @@ const ARTICLE_FIELDS = `
 
 export async function getVisites(locale: string = 'fr'): Promise<SanityVisite[]> {
   try {
-    if (!client) return staticVisites
+    if (!client) return resolveVisites(fb(locale))
     const data = await client.fetch<SanityVisite[]>(
       `*[_type == "visite"] | order(coalesce(ordre, 99)) { ${VISITE_FIELDS} }`,
       { locale },
@@ -54,12 +58,13 @@ export async function getVisites(locale: string = 'fr'): Promise<SanityVisite[]>
   } catch (e) {
     console.error('Sanity getVisites error:', e)
   }
-  return staticVisites
+  return resolveVisites(fb(locale))
 }
 
 export async function getVisite(slug: string, locale: string = 'fr'): Promise<SanityVisite | null> {
+  const fallback = () => resolveVisites(fb(locale)).find(v => v.slug === slug) ?? null
   try {
-    if (!client) return staticVisites.find(v => v.slug === slug) ?? null
+    if (!client) return fallback()
     const data = await client.fetch<SanityVisite>(
       `*[_type == "visite" && slug.current == $slug][0] { ${VISITE_FIELDS} }`,
       { slug, locale },
@@ -69,12 +74,12 @@ export async function getVisite(slug: string, locale: string = 'fr'): Promise<Sa
   } catch (e) {
     console.error('Sanity getVisite error:', e)
   }
-  return staticVisites.find(v => v.slug === slug) ?? null
+  return fallback()
 }
 
 export async function getArticles(locale: string = 'fr'): Promise<SanityArticle[]> {
   try {
-    if (!client) return staticArticles
+    if (!client) return resolveArticles(fb(locale))
     const data = await client.fetch<SanityArticle[]>(
       `*[_type == "article"] | order(_createdAt desc) { ${ARTICLE_FIELDS} }`,
       { locale },
@@ -84,12 +89,13 @@ export async function getArticles(locale: string = 'fr'): Promise<SanityArticle[
   } catch (e) {
     console.error('Sanity getArticles error:', e)
   }
-  return staticArticles
+  return resolveArticles(fb(locale))
 }
 
 export async function getArticle(slug: string, locale: string = 'fr'): Promise<SanityArticle | null> {
+  const fallback = () => resolveArticles(fb(locale)).find(a => a.slug === slug) ?? null
   try {
-    if (!client) return staticArticles.find(a => a.slug === slug) ?? null
+    if (!client) return fallback()
     const data = await client.fetch<SanityArticle>(
       `*[_type == "article" && slug.current == $slug][0] { ${ARTICLE_FIELDS} }`,
       { slug, locale },
@@ -99,7 +105,7 @@ export async function getArticle(slug: string, locale: string = 'fr'): Promise<S
   } catch (e) {
     console.error('Sanity getArticle error:', e)
   }
-  return staticArticles.find(a => a.slug === slug) ?? null
+  return fallback()
 }
 
 /* ── Types pages singletons ────────────────────────────────────────────────── */
