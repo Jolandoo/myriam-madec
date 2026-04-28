@@ -62,41 +62,41 @@ export async function generateMetadata(
   }
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Myriam Madec — Guide Conférencière',
-  description: 'Guide Conférencière Officielle du Bassin d\'Arcachon depuis 1994. Visites guidées à pied, à vélo et en bateau.',
-  url: 'https://www.tourismearcachon.fr',
-  telephone: '+33680439678',
-  email: 'contact@tourismearcachon.fr',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Arcachon',
-    addressRegion: 'Gironde',
-    addressCountry: 'FR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 44.6611,
-    longitude: -1.1681,
-  },
-  areaServed: {
-    '@type': 'Place',
-    name: 'Bassin d\'Arcachon',
-  },
-  priceRange: '€€',
-  currenciesAccepted: 'EUR',
-  openingHours: 'Mo-Su 06:00-20:00',
-  hasMap: 'https://maps.google.com/?q=Arcachon,France',
-  sameAs: [
-    'https://tourismearcachon.fr',
-  ],
-  founder: {
-    '@type': 'Person',
-    name: 'Myriam Madec',
-    jobTitle: 'Guide Interprète Nationale',
-  },
+function buildJsonLd(t: (key: string) => string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: t('name'),
+    description: t('description'),
+    url: 'https://www.tourismearcachon.fr',
+    telephone: '+33680439678',
+    email: 'contact@tourismearcachon.fr',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Arcachon',
+      addressRegion: 'Gironde',
+      addressCountry: 'FR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 44.6611,
+      longitude: -1.1681,
+    },
+    areaServed: {
+      '@type': 'Place',
+      name: t('areaServedName'),
+    },
+    priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    openingHours: 'Mo-Su 06:00-20:00',
+    hasMap: 'https://maps.google.com/?q=Arcachon,France',
+    sameAs: ['https://tourismearcachon.fr'],
+    founder: {
+      '@type': 'Person',
+      name: 'Myriam Madec',
+      jobTitle: t('jobTitle'),
+    },
+  }
 }
 
 export default async function LocaleLayout({
@@ -114,6 +114,8 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale)
   const messages = await getMessages()
+  const tJsonLd = await getTranslations({ locale, namespace: 'jsonLd' })
+  const jsonLd = buildJsonLd(tJsonLd)
 
   return (
     <NextIntlClientProvider messages={messages}>

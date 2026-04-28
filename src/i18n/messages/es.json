@@ -1,15 +1,15 @@
 {
   "metadata": {
     "title": {
-      "default": "Turismo Arcachon — Myriam Madec — Guía oficial, Bahía de Arcachon",
-      "template": "%s — Myriam Madec, Guía turística"
+      "default": "Turismo Arcachon | Myriam Madec, Guía oficial, Bahía de Arcachon",
+      "template": "%s | Myriam Madec, Guía turística"
     },
-    "description": "Descubra la Bahía de Arcachon con Myriam Madec, guía oficial desde 1994. Visitas a pie, en bicicleta y en barco — Arcachon, Duna de Pilat, Cap Ferret, Isla de los Pájaros.",
+    "description": "Descubra la Bahía de Arcachon con Myriam Madec, guía oficial desde 1994. Visitas a pie, en bicicleta y en barco: Arcachon, Duna de Pilat, Cap Ferret, Isla de los Pájaros.",
     "keywords": "guía Arcachon, visita guiada Bahía de Arcachon, turismo Arcachon, Duna de Pilat visita guiada, guía oficial Arcachon, paseo a pie Arcachon, Isla de los Pájaros visita, bicicleta Arcachon, barco Bahía de Arcachon, turismo Arcachon",
-    "ogTitle": "Myriam Madec — Guía oficial, Bahía de Arcachon",
-    "ogDescription": "Visitas guiadas auténticas por la Bahía de Arcachon — a pie, en bicicleta, en barco. Guía oficial desde 1994.",
-    "ogSiteName": "Myriam Madec — Guía turística",
-    "twitterTitle": "Myriam Madec — Guía oficial, Bahía de Arcachon",
+    "ogTitle": "Myriam Madec | Guía oficial, Bahía de Arcachon",
+    "ogDescription": "Visitas guiadas auténticas por la Bahía de Arcachon: a pie, en bicicleta, en barco. Guía oficial desde 1994.",
+    "ogSiteName": "Myriam Madec, Guía turística",
+    "twitterTitle": "Myriam Madec | Guía oficial, Bahía de Arcachon",
     "twitterDescription": "Visitas guiadas a pie, en bicicleta y en barco por la Bahía de Arcachon."
   },
   "nav": {
@@ -19,7 +19,7 @@
     "actualites": "Noticias",
     "votreGuide": "Su guía",
     "contactReservation": "Contacto y reservas",
-    "backToHome": "Volver al inicio — Myriam Madec, Guía turística",
+    "backToHome": "Volver al inicio | Myriam Madec, Guía turística",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "guideConferenciere": "Guía turística"
@@ -27,7 +27,7 @@
   "hero": {
     "eyebrow": "Guía oficial · Bahía de Arcachon",
     "title": "Visitas guiadas por la Bahía de Arcachon",
-    "subtitle": "Visitas inolvidables grabadas en su memoria — a pie, en bicicleta, en barco.",
+    "subtitle": "Visitas inolvidables grabadas en su memoria. A pie, en bicicleta, en barco.",
     "cta": "Descubrir mis visitas",
     "ctaContact": "Contactarme",
     "banner": "Banner principal",
@@ -39,7 +39,7 @@
     "eyebrow": "Mis visitas",
     "title": "{count} formas de descubrir",
     "titleAccent": "la Bahía",
-    "subtitle": "A pie, en bicicleta eléctrica, en bicicleta o en barco — cada visita cuenta una historia diferente.",
+    "subtitle": "A pie, en bicicleta eléctrica, en bicicleta o en barco. Cada visita cuenta una historia diferente.",
     "empty": "No hay visitas en esta categoría.",
     "filterLabel": "Filtrar visitas"
   },
@@ -67,8 +67,8 @@
   },
   "about": {
     "eyebrow": "Su guía",
-    "quote": "\"Hacer de su estancia una experiencia enriquecedora e inolvidable — esa ha sido mi misión durante 30 años.\"",
-    "bio": "Apasionada por la arqueología desde la infancia, Myriam descubrió su verdadera vocación en compartir conocimientos. Conoce la Bahía de Arcachon de cabo a rabo — desde las cabañas tchanquées hasta las excavaciones arqueológicas bajo la Duna de Pilat, desde las lonjas del puerto al amanecer hasta los senderos ocultos de la Ville d'Hiver.",
+    "quote": "\"Hacer de su estancia una experiencia enriquecedora e inolvidable, esa ha sido mi misión durante 30 años.\"",
+    "bio": "Apasionada por la arqueología desde la infancia, Myriam descubrió su verdadera vocación en compartir conocimientos. Conoce la Bahía de Arcachon de cabo a rabo: desde las cabañas tchanquées hasta las excavaciones arqueológicas bajo la Duna de Pilat, desde las lonjas del puerto al amanecer hasta los senderos ocultos de la Ville d'Hiver.",
     "guideOfficielle": "Guía oficial",
     "depuis": "desde 1994",
     "credential1": "Guía Intérprete Nacional desde 1997",
@@ -80,11 +80,11 @@
   "cta": {
     "eyebrow": "Actúe",
     "title": "¿Listo para descubrir la Bahía de Arcachon?",
-    "subtitle": "Visitas inolvidables grabadas en su memoria — reserve ahora o contacte a Myriam para una experiencia a medida.",
+    "subtitle": "Visitas inolvidables grabadas en su memoria. Reserve ahora o contacte a Myriam para una experiencia a medida.",
     "bookTour": "Reservar una visita",
     "bookTourDesc": "Explore el catálogo y elija su experiencia.",
     "requestQuote": "Solicitar presupuesto",
-    "requestQuoteDesc": "Grupos, colegios, empresas — visitas a medida.",
+    "requestQuoteDesc": "Grupos, colegios, empresas: visitas a medida.",
     "phoneDesc": "Disponible todos los días para responder a sus preguntas."
   },
   "footer": {
@@ -97,9 +97,9 @@
     "baladesBateau": "Paseos en barco",
     "informations": "Información",
     "bookVisit": "Reservar una visita",
-    "bookVisitDesc": "Grupos, familias, colegios — contacte a Myriam para crear su visita a medida.",
+    "bookVisitDesc": "Grupos, familias, colegios: contacte a Myriam para crear su visita a medida.",
     "contact": "Contactar",
-    "copyright": "© {year} Myriam Madec — Guía oficial, Bahía de Arcachon",
+    "copyright": "© {year} Myriam Madec, Guía oficial, Bahía de Arcachon",
     "fngic": "Miembro FNGIC",
     "guidesNA": "Guías de Nouvelle-Aquitaine",
     "accueil": "Inicio"
@@ -107,7 +107,7 @@
   "contact": {
     "eyebrow": "Contacto",
     "title": "Contactarme",
-    "description": "Para reservar una visita, solicitar un presupuesto o simplemente hacer una pregunta — respondo en 24 horas.",
+    "description": "Para reservar una visita, solicitar un presupuesto o simplemente hacer una pregunta. Respondo en 24 horas.",
     "imageAlt": "Vista aérea de la Bahía de Arcachon y la Duna de Pilat",
     "nom": "Apellido",
     "prenom": "Nombre",
@@ -115,7 +115,7 @@
     "telephone": "Teléfono",
     "phonePlaceholder": "+34 600 000 000",
     "message": "Mensaje",
-    "messagePlaceholder": "Describa su proyecto de visita — tipo, número de personas, fecha preferida...",
+    "messagePlaceholder": "Describa su proyecto de visita: tipo, número de personas, fecha preferida...",
     "send": "Enviar mensaje",
     "sending": "Enviando…",
     "sentTitle": "¡Mensaje enviado!",
@@ -128,13 +128,13 @@
     "available2": "Entre semana y fines de semana",
     "available3": "Grupos a partir de 10 personas",
     "available4": "Familias e individuales bienvenidos",
-    "metaTitle": "Contacto — Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaTitle": "Contacto | Myriam Madec, Guía turística, Bahía de Arcachon",
     "metaDescription": "Contacte a Myriam Madec para reservar una visita guiada por la Bahía de Arcachon o solicitar un presupuesto."
   },
   "tarifs": {
     "eyebrow": "Precios",
     "title": "Precios para grupos y visitas privadas",
-    "description": "Todos los precios son por grupo, independientemente del tamaño — a pie, en bicicleta o en barco.",
+    "description": "Todos los precios son por grupo, independientemente del tamaño: a pie, en bicicleta o en barco.",
     "imageAlt": "Puerto de Arcachon",
     "priceByDuration": "Precios por duración",
     "groupMinimum": "Grupos a pie: mínimo 30 personas · Grupos en bicicleta: mínimo 15 personas",
@@ -143,15 +143,15 @@
     "quoteTitle": "Solicitar presupuesto",
     "quoteDesc": "Para colegios, empresas o grupos especiales, contácteme directamente.",
     "contactMe": "Contactarme",
-    "metaTitle": "Precios — Myriam Madec, Guía turística, Bahía de Arcachon",
-    "metaDescription": "Precios de visitas guiadas privadas por la Bahía de Arcachon. Grupos, familias, colegios — desde 200 €."
+    "metaTitle": "Precios | Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaDescription": "Precios de visitas guiadas privadas por la Bahía de Arcachon. Grupos, familias, colegios, desde 200 €."
   },
   "mesVisites": {
     "eyebrow": "Guía oficial",
     "title": "Mis visitas guiadas",
-    "description": "Pasear por las calles de la Ville d'Hiver, recorrer la costa en bicicleta o navegar hasta la Isla de los Pájaros — cada visita es un encuentro con la Bahía.",
+    "description": "Pasear por las calles de la Ville d'Hiver, recorrer la costa en bicicleta o navegar hasta la Isla de los Pájaros. Cada visita es un encuentro con la Bahía.",
     "imageAlt": "Atardecer sobre la Bahía de Arcachon",
-    "metaTitle": "Visitas guiadas — Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaTitle": "Visitas guiadas | Myriam Madec, Guía turística, Bahía de Arcachon",
     "metaDescription": "13 visitas guiadas por la Bahía de Arcachon: a pie, en bicicleta eléctrica, en bicicleta o en barco. Historia, patrimonio, naturaleza y gastronomía local."
   },
   "visiteDetail": {
@@ -181,11 +181,11 @@
   "actualites": {
     "eyebrow": "Noticias",
     "title": "Últimas noticias",
-    "description": "Nuevas visitas, jornadas de guías, eventos — siga la vida en la Bahía de Arcachon.",
+    "description": "Nuevas visitas, jornadas de guías, eventos. Siga la vida en la Bahía de Arcachon.",
     "imageAlt": "Amanecer en Cap Ferret, Bahía de Arcachon",
     "readMore": "Leer más →",
-    "metaTitle": "Noticias — Myriam Madec, Guía turística, Bahía de Arcachon",
-    "metaDescription": "Siga las noticias de Myriam Madec — nuevas visitas, jornadas de guías, eventos en la Bahía de Arcachon."
+    "metaTitle": "Noticias | Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaDescription": "Siga las noticias de Myriam Madec: nuevas visitas, jornadas de guías, eventos en la Bahía de Arcachon."
   },
   "articleDetail": {
     "allArticles": "Todas las noticias",
@@ -209,25 +209,38 @@
     "bookVisit": "Reservar una visita",
     "specialities": "Mis especialidades",
     "affiliations": "Afiliaciones profesionales",
-    "metaTitle": "Su guía — Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaTitle": "Su guía | Myriam Madec, Guía turística, Bahía de Arcachon",
     "metaDescription": "Myriam Madec, Guía Intérprete Nacional oficial de la Bahía de Arcachon desde 1994. Descubra su trayectoria, especialidades y pasión por la región."
   },
   "privatisation": {
     "eyebrow": "A medida",
     "defaultHeroTitle": "Visitas privadas por la costa de Arcachon",
-    "defaultHeroDescription": "A pie, en bicicleta o en barco — elija su día, hora y tema. Su visita se convierte en única y personalizada.",
+    "defaultHeroDescription": "A pie, en bicicleta o en barco. Elija su día, hora y tema. Su visita se convierte en única y personalizada.",
     "defaultHeroImageAlt": "Cabañas tchanquées en la Isla de los Pájaros, Bahía de Arcachon",
     "coupDeCoeurEyebrow": "Mi favorito",
     "ctaTitle": "Cree su visita a medida",
-    "ctaDesc": "Grupos, familias, colegios — contácteme para construir una experiencia perfecta para usted.",
+    "ctaDesc": "Grupos, familias, colegios: contácteme para construir una experiencia perfecta para usted.",
     "contactMe": "Contactarme",
-    "metaTitle": "Visitas privadas — Myriam Madec, Guía turística, Bahía de Arcachon",
-    "metaDescription": "Reserve su guía privada para una visita a medida por la Bahía de Arcachon — a pie, en bicicleta o en barco, en familia, con amigos o en grupo."
+    "metaTitle": "Visitas privadas | Myriam Madec, Guía turística, Bahía de Arcachon",
+    "metaDescription": "Reserve su guía privada para una visita a medida por la Bahía de Arcachon. A pie, en bicicleta o en barco, en familia, con amigos o en grupo."
   },
   "languageSwitcher": {
     "label": "Idioma",
     "fr": "FR",
     "en": "EN",
     "es": "ES"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Página no encontrada",
+    "description": "Lo siento, la página que busca no existe o ha sido movida. Pero la Bahía de Arcachon sigue ahí.",
+    "ctaHome": "Volver al inicio",
+    "ctaVisites": "Ver mis visitas"
+  },
+  "jsonLd": {
+    "name": "Myriam Madec, Guía Oficial",
+    "description": "Guía oficial de la Bahía de Arcachon desde 1994. Visitas guiadas a pie, en bicicleta y en barco.",
+    "areaServedName": "Bahía de Arcachon",
+    "jobTitle": "Guía Intérprete Nacional"
   }
 }

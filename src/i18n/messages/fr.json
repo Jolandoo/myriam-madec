@@ -1,15 +1,15 @@
 {
   "metadata": {
     "title": {
-      "default": "Arcachon Tourisme — Myriam Madec — Guide Conférencière Bassin d'Arcachon",
-      "template": "%s — Myriam Madec, Guide Conférencière"
+      "default": "Arcachon Tourisme | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+      "template": "%s | Myriam Madec, Guide Conférencière"
     },
-    "description": "Découvrez le Bassin d'Arcachon avec Myriam Madec, guide conférencière officielle depuis 1994. Visites guidées à pied, à vélo et en bateau — Arcachon, Dune du Pilat, Cap Ferret, Île aux Oiseaux.",
+    "description": "Découvrez le Bassin d'Arcachon avec Myriam Madec, guide conférencière officielle depuis 1994. Visites guidées à pied, à vélo et en bateau : Arcachon, Dune du Pilat, Cap Ferret, Île aux Oiseaux.",
     "keywords": "guide conférencière Arcachon, visite guidée Bassin d'Arcachon, guide touristique Arcachon, visite guidée dune du Pilat, guide officiel Arcachon, balade guidée Arcachon, visite Île aux Oiseaux, guide vélo Arcachon, excursion bateau Bassin d'Arcachon, tourisme Arcachon",
-    "ogTitle": "Myriam Madec — Guide Conférencière Bassin d'Arcachon",
-    "ogDescription": "Visites guidées authentiques sur le Bassin d'Arcachon — à pied, à vélo, en bateau. Guide officielle depuis 1994.",
-    "ogSiteName": "Myriam Madec — Guide Conférencière",
-    "twitterTitle": "Myriam Madec — Guide Conférencière Bassin d'Arcachon",
+    "ogTitle": "Myriam Madec | Guide Conférencière Bassin d'Arcachon",
+    "ogDescription": "Visites guidées authentiques sur le Bassin d'Arcachon : à pied, à vélo, en bateau. Guide officielle depuis 1994.",
+    "ogSiteName": "Myriam Madec, Guide Conférencière",
+    "twitterTitle": "Myriam Madec | Guide Conférencière Bassin d'Arcachon",
     "twitterDescription": "Visites guidées à pied, à vélo et en bateau sur le Bassin d'Arcachon."
   },
   "nav": {
@@ -19,7 +19,7 @@
     "actualites": "Actualités",
     "votreGuide": "Votre guide",
     "contactReservation": "Contact & Réservation",
-    "backToHome": "Retour à l'accueil — Myriam Madec, Guide Conférencière",
+    "backToHome": "Retour à l'accueil | Myriam Madec, Guide Conférencière",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
     "guideConferenciere": "Guide Conférencière"
@@ -27,7 +27,7 @@
   "hero": {
     "eyebrow": "Guide Conférencière Officielle · Bassin d'Arcachon",
     "title": "Visites guidées du Bassin d'Arcachon",
-    "subtitle": "Des visites inoubliables gravées dans vos mémoires — à pied, à vélo, en bateau.",
+    "subtitle": "Des visites inoubliables gravées dans vos mémoires. À pied, à vélo, en bateau.",
     "cta": "Découvrir mes visites",
     "ctaContact": "Me contacter",
     "banner": "Bannière principale",
@@ -39,7 +39,7 @@
     "eyebrow": "Mes visites",
     "title": "{count} façons de découvrir",
     "titleAccent": "le Bassin",
-    "subtitle": "À pied, à vélo électrique, à vélo ou en bateau — chaque visite est une histoire différente.",
+    "subtitle": "À pied, à vélo électrique, à vélo ou en bateau. Chaque visite est une histoire différente.",
     "empty": "Aucune visite dans cette catégorie.",
     "filterLabel": "Filtrer les visites"
   },
@@ -67,8 +67,8 @@
   },
   "about": {
     "eyebrow": "Votre guide",
-    "quote": "« Faire de votre séjour une expérience enrichissante et inoubliable — c'est ma mission depuis 30 ans. »",
-    "bio": "Passionnée d'archéologie depuis l'enfance, Myriam a découvert sa vraie vocation dans la transmission. Elle connaît le Bassin d'Arcachon dans ses moindres recoins — des cabanes tchanquées aux fouilles sous la dune du Pilat, des criées à l'aube aux allées secrètes de la Ville d'Hiver.",
+    "quote": "« Faire de votre séjour une expérience enrichissante et inoubliable, c'est ma mission depuis 30 ans. »",
+    "bio": "Passionnée d'archéologie depuis l'enfance, Myriam a découvert sa vraie vocation dans la transmission. Elle connaît le Bassin d'Arcachon dans ses moindres recoins : des cabanes tchanquées aux fouilles sous la dune du Pilat, des criées à l'aube aux allées secrètes de la Ville d'Hiver.",
     "guideOfficielle": "Guide officielle",
     "depuis": "depuis 1994",
     "credential1": "Guide Interprète Nationale depuis 1997",
@@ -80,11 +80,11 @@
   "cta": {
     "eyebrow": "Passez à l'action",
     "title": "Prêt à découvrir le Bassin d'Arcachon ?",
-    "subtitle": "Des visites inoubliables gravées dans vos mémoires — réservez dès maintenant ou contactez Myriam pour une expérience sur mesure.",
+    "subtitle": "Des visites inoubliables gravées dans vos mémoires. Réservez dès maintenant ou contactez Myriam pour une expérience sur mesure.",
     "bookTour": "Réserver une visite",
     "bookTourDesc": "Consultez le catalogue et choisissez votre expérience.",
     "requestQuote": "Demander un devis",
-    "requestQuoteDesc": "Groupes, scolaires, entreprises — visite sur mesure.",
+    "requestQuoteDesc": "Groupes, scolaires, entreprises : visite sur mesure.",
     "phoneDesc": "Disponible tous les jours pour répondre à vos questions."
   },
   "footer": {
@@ -97,9 +97,9 @@
     "baladesBateau": "Balades en bateau",
     "informations": "Informations",
     "bookVisit": "Réserver une visite",
-    "bookVisitDesc": "Groupes, familles, scolaires — contactez Myriam pour composer votre visite sur mesure.",
+    "bookVisitDesc": "Groupes, familles, scolaires : contactez Myriam pour composer votre visite sur mesure.",
     "contact": "Prendre contact",
-    "copyright": "© {year} Myriam Madec — Guide Conférencière Officielle du Bassin d'Arcachon",
+    "copyright": "© {year} Myriam Madec, Guide Conférencière Officielle du Bassin d'Arcachon",
     "fngic": "Membre FNGIC",
     "guidesNA": "Guides de Nouvelle-Aquitaine",
     "accueil": "Accueil"
@@ -107,7 +107,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Me contacter",
-    "description": "Pour réserver une visite, obtenir un devis ou simplement poser une question — je réponds sous 24h.",
+    "description": "Pour réserver une visite, obtenir un devis ou simplement poser une question. Je réponds sous 24h.",
     "imageAlt": "Vue aérienne du Bassin d'Arcachon et de la Dune du Pilat",
     "nom": "Nom",
     "prenom": "Prénom",
@@ -115,7 +115,7 @@
     "telephone": "Téléphone",
     "phonePlaceholder": "+33 6 00 00 00 00",
     "message": "Message",
-    "messagePlaceholder": "Décrivez votre projet de visite — type, nombre de personnes, date souhaitée...",
+    "messagePlaceholder": "Décrivez votre projet de visite : type, nombre de personnes, date souhaitée...",
     "send": "Envoyer le message",
     "sending": "Envoi…",
     "sentTitle": "Message envoyé !",
@@ -128,13 +128,13 @@
     "available2": "En semaine et week-end",
     "available3": "Groupes dès 10 personnes",
     "available4": "Familles et particuliers bienvenus",
-    "metaTitle": "Contact — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaTitle": "Contact | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
     "metaDescription": "Contactez Myriam Madec pour réserver une visite guidée du Bassin d'Arcachon ou obtenir un devis."
   },
   "tarifs": {
     "eyebrow": "Tarifs",
     "title": "Tarifs groupe & privatisation",
-    "description": "Tous les tarifs s'entendent par groupe, quelle que soit la taille — à pied, à vélo ou en bateau.",
+    "description": "Tous les tarifs s'entendent par groupe, quelle que soit la taille : à pied, à vélo ou en bateau.",
     "imageAlt": "Port d'Arcachon",
     "priceByDuration": "Tarifs par durée",
     "groupMinimum": "Groupes à pied : minimum 30 personnes · Groupes à vélo : minimum 15 personnes",
@@ -143,15 +143,15 @@
     "quoteTitle": "Demander un devis",
     "quoteDesc": "Pour les scolaires, les entreprises ou les groupes spéciaux, contactez-moi directement.",
     "contactMe": "Me contacter",
-    "metaTitle": "Tarifs — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
-    "metaDescription": "Tarifs des visites guidées privatisées sur le Bassin d'Arcachon. Groupes, familles, scolaires — à partir de 200 €."
+    "metaTitle": "Tarifs | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaDescription": "Tarifs des visites guidées privatisées sur le Bassin d'Arcachon. Groupes, familles, scolaires, à partir de 200 €."
   },
   "mesVisites": {
     "eyebrow": "Guide Conférencière Officielle",
     "title": "Mes visites guidées",
-    "description": "À pied dans les ruelles de la Ville d'Hiver, à vélo le long du littoral, ou en bateau vers l'Île aux Oiseaux — chaque visite est une rencontre avec le Bassin.",
+    "description": "À pied dans les ruelles de la Ville d'Hiver, à vélo le long du littoral, ou en bateau vers l'Île aux Oiseaux. Chaque visite est une rencontre avec le Bassin.",
     "imageAlt": "Coucher de soleil sur le Bassin d'Arcachon",
-    "metaTitle": "Mes visites — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaTitle": "Mes visites | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
     "metaDescription": "13 visites guidées sur le Bassin d'Arcachon : à pied, à vélo électrique, à vélo ou en bateau. Histoire, patrimoine, nature et gastronomie locale."
   },
   "visiteDetail": {
@@ -181,11 +181,11 @@
   "actualites": {
     "eyebrow": "Actualités",
     "title": "Les dernières nouvelles",
-    "description": "Nouveautés, événements, journées des guides — suivez la vie du Bassin d'Arcachon.",
+    "description": "Nouveautés, événements, journées des guides. Suivez la vie du Bassin d'Arcachon.",
     "imageAlt": "Lever de soleil au Cap Ferret, Bassin d'Arcachon",
     "readMore": "Lire la suite →",
-    "metaTitle": "Actualités — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
-    "metaDescription": "Suivez les actualités de Myriam Madec — nouvelles visites, journées des guides, événements autour du Bassin d'Arcachon."
+    "metaTitle": "Actualités | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaDescription": "Suivez les actualités de Myriam Madec : nouvelles visites, journées des guides, événements autour du Bassin d'Arcachon."
   },
   "articleDetail": {
     "allArticles": "Toutes les actualités",
@@ -209,24 +209,38 @@
     "bookVisit": "Réserver une visite",
     "specialities": "Mes spécialités",
     "affiliations": "Affiliations professionnelles",
-    "metaTitle": "Votre guide — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaTitle": "Votre guide | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
     "metaDescription": "Myriam Madec, Guide Interprète Nationale officielle du Bassin d'Arcachon depuis 1994. Découvrez son parcours, ses spécialités et sa passion pour le territoire."
   },
   "privatisation": {
     "eyebrow": "Sur mesure",
     "defaultHeroTitle": "Balades privatisées sur le littoral Arcachonnais",
-    "defaultHeroDescription": "À pied, à vélo ou en bateau — choisissez votre jour, votre heure et votre thème. Votre visite devient unique et personnalisée.",
+    "defaultHeroDescription": "À pied, à vélo ou en bateau. Choisissez votre jour, votre heure et votre thème. Votre visite devient unique et personnalisée.",
     "defaultHeroImageAlt": "Cabanes tchanquées sur l'Île aux Oiseaux, Bassin d'Arcachon",
     "coupDeCoeurEyebrow": "Mon coup de cœur",
     "ctaTitle": "Composez votre visite sur mesure",
-    "ctaDesc": "Groupes, familles, scolaires — contactez-moi pour construire ensemble une expérience qui vous ressemble.",
+    "ctaDesc": "Groupes, familles, scolaires : contactez-moi pour construire ensemble une expérience qui vous ressemble.",
     "contactMe": "Me contacter",
-    "metaTitle": "Privatisation — Myriam Madec, Guide Conférencière Bassin d'Arcachon",
-    "metaDescription": "Privatisez votre guide conférencière pour une visite sur mesure du Bassin d'Arcachon — à pied, à vélo ou en bateau, en famille, entre amis ou en groupe."
+    "metaTitle": "Privatisation | Myriam Madec, Guide Conférencière Bassin d'Arcachon",
+    "metaDescription": "Privatisez votre guide conférencière pour une visite sur mesure du Bassin d'Arcachon. À pied, à vélo ou en bateau, en famille, entre amis ou en groupe."
   },
   "languageSwitcher": {
     "label": "Langue",
     "fr": "FR",
-    "en": "EN"
+    "en": "EN",
+    "es": "ES"
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Page introuvable",
+    "description": "Désolée, la page que vous cherchez n'existe pas ou a été déplacée. Mais le Bassin d'Arcachon, lui, est toujours là.",
+    "ctaHome": "Retour à l'accueil",
+    "ctaVisites": "Voir mes visites"
+  },
+  "jsonLd": {
+    "name": "Myriam Madec, Guide Conférencière",
+    "description": "Guide Conférencière Officielle du Bassin d'Arcachon depuis 1994. Visites guidées à pied, à vélo et en bateau.",
+    "areaServedName": "Bassin d'Arcachon",
+    "jobTitle": "Guide Interprète Nationale"
   }
 }
