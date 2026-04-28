@@ -2,7 +2,8 @@
 
 import { motion, type Transition } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 const fadeUp = (delay: number): {
   initial: { opacity: number; y: number }
@@ -15,19 +16,15 @@ const fadeUp = (delay: number): {
 })
 
 export default function Hero() {
+  const t = useTranslations('hero')
+
   return (
     <section
       className="relative flex items-center justify-center min-h-[100svh] overflow-hidden"
-      aria-label="Bannière principale"
+      aria-label={t('banner')}
     >
 
-      {/* ── Fond : vidéo YouTube (desktop) + photo fallback (mobile) ────
-          Vidéo : https://youtu.be/4xPiQDzeUKg — Dune du Pilat, démarre à 10s
-          Photo  : VIN2108-scaled.jpg — pinasse sur le Bassin (gardée en stock)
-      ──────────────────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 bg-[#0a1520] overflow-hidden">
-
-{/* Vidéo locale — toutes tailles d'écran */}
         <video
           autoPlay
           muted
@@ -37,10 +34,8 @@ export default function Hero() {
         >
           <source src="/videos/hero-web.mp4" type="video/mp4" />
         </video>
-
       </div>
 
-      {/* ── Overlay global ──────────────────────────────────────────── */}
       <div
         className="absolute inset-0"
         style={{
@@ -48,35 +43,32 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-      {/* ── Gradient top — assure la lisibilité du header sur toute photo ── */}
       <div
         className="absolute top-0 left-0 right-0 h-36"
         style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,.45) 0%, transparent 100%)' }}
         aria-hidden="true"
       />
 
-      {/* ── Contenu ──────────────────────────────────────────────────── */}
       <div className="relative z-10 section-container flex flex-col items-center text-center gap-5 pt-20 pb-24">
 
         <motion.p {...fadeUp(0.2)}
           className="font-[var(--font-sans)] text-sm font-semibold uppercase tracking-[3px] text-white/70"
         >
-          Guide Conférencière Officielle · Bassin d'Arcachon
+          {t('eyebrow')}
         </motion.p>
 
         <motion.h1 {...fadeUp(0.35)}
           className="font-[var(--font-serif)] text-white leading-[1.1] max-w-3xl"
           style={{ textShadow: '0 2px 20px rgba(0,0,0,.3)' }}
         >
-          Visites guidées du Bassin d'Arcachon
+          {t('title')}
         </motion.h1>
 
         <motion.p {...fadeUp(0.52)}
           className="font-[var(--font-sans)] text-white/80 max-w-lg text-xl leading-relaxed"
           style={{ textShadow: '0 1px 8px rgba(0,0,0,.3)' }}
         >
-          Des visites inoubliables gravées dans vos mémoires —
-          à pied, à vélo, en bateau.
+          {t('subtitle')}
         </motion.p>
 
         <motion.div {...fadeUp(0.68)} className="flex flex-wrap justify-center gap-3 mt-2">
@@ -90,7 +82,7 @@ export default function Hero() {
               'shadow-lg',
             ].join(' ')}
           >
-            Découvrir mes visites
+            {t('cta')}
           </Link>
           <Link
             href="/contact"
@@ -102,11 +94,10 @@ export default function Hero() {
               'hover:bg-white/20 hover:border-white/50 transition-all duration-200',
             ].join(' ')}
           >
-            Me contacter
+            {t('ctaContact')}
           </Link>
         </motion.div>
 
-        {/* Compteurs */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -114,9 +105,9 @@ export default function Hero() {
           className="flex items-center gap-10 mt-6 pt-6 border-t border-white/15"
         >
           {[
-            { count: '8',  label: 'visites à pied'    },
-            { count: '4',  label: 'visites à vélo'    },
-            { count: '1',  label: 'visite en bateau'  },
+            { count: '8', label: t('countWalking') },
+            { count: '4', label: t('countBike') },
+            { count: '1', label: t('countBoat') },
           ].map(({ count, label }) => (
             <div key={label} className="flex flex-col items-center gap-0.5">
               <span className="font-[var(--font-serif)] text-white text-4xl">{count}</span>
@@ -127,7 +118,6 @@ export default function Hero() {
 
       </div>
 
-      {/* ── Scroll indicator ─────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

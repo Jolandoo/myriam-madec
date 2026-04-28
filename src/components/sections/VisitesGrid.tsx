@@ -2,17 +2,17 @@
 
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import VisiteCard from './VisiteCard'
 import FilterBar, { type FilterValue } from './FilterBar'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { type Visite } from '@/data/visites'
 
-// ─── Composant ────────────────────────────────────────────────────────────────
-
 interface Props { visites: Visite[] }
 
 export default function VisitesGrid({ visites }: Props) {
   const [activeFilter, setActiveFilter] = useState<FilterValue>('all')
+  const t = useTranslations('visitesGrid')
 
   const filtered = useMemo(
     () => activeFilter === 'all'
@@ -21,7 +21,6 @@ export default function VisitesGrid({ visites }: Props) {
     [activeFilter, visites],
   )
 
-  // Counts per category for FilterBar badges
   const counts = useMemo(() => ({
     all:               visites.length,
     pied:              visites.filter((v) => v.categorie === 'pied').length,
@@ -34,23 +33,20 @@ export default function VisitesGrid({ visites }: Props) {
     <section id="visites" className="section-padding bg-[var(--gray-50)]">
       <div className="section-container flex flex-col gap-12">
 
-        {/* Header */}
         <SectionHeader
-          eyebrow="Mes visites"
-          title={`${visites.length} façons de découvrir`}
-          titleAccent="le Bassin"
-          subtitle="À pied, à vélo électrique, à vélo ou en bateau — chaque visite est une histoire différente."
+          eyebrow={t('eyebrow')}
+          title={t('title', { count: visites.length })}
+          titleAccent={t('titleAccent')}
+          subtitle={t('subtitle')}
           align="center"
         />
 
-        {/* Filters */}
         <FilterBar
           active={activeFilter}
           onChange={setActiveFilter}
           counts={counts}
         />
 
-        {/* Flexbox centré — dernière ligne centrée automatiquement */}
         <motion.div
           layout
           className="flex flex-wrap justify-center gap-5"
@@ -72,10 +68,9 @@ export default function VisitesGrid({ visites }: Props) {
           </AnimatePresence>
         </motion.div>
 
-        {/* Empty state (shouldn't happen but safe) */}
         {filtered.length === 0 && (
           <p className="text-center font-[var(--font-sans)] text-[var(--text-muted)] py-16">
-            Aucune visite dans cette catégorie.
+            {t('empty')}
           </p>
         )}
 

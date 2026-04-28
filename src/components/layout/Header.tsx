@@ -1,29 +1,26 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { Menu } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import MobileNav from './MobileNav'
-
-// ─── Configuration ─────────────────────────────────────────────────────────────
-// Modifier ici pour ajouter ou réordonner des liens de navigation
-
-const NAV_LINKS = [
-  { label: 'Mes visites',    href: '/mes-visites'    },
-  { label: 'Privatisation',  href: '/privatisation'  },
-  { label: 'Tarifs',         href: '/tarifs'         },
-  { label: 'Actualités',     href: '/actualites'     },
-  { label: 'Votre guide',    href: '/votre-guide'    },
-]
-
-// ─── Composant ────────────────────────────────────────────────────────────────
+import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 export default function Header() {
-  const [scrolled,    setScrolled]    = useState(false)
-  const [mobileOpen,  setMobileOpen]  = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const t = useTranslations('nav')
 
-  // Détecte le scroll pour passer de transparent à blanc
+  const NAV_LINKS = [
+    { label: t('mesVisites'),   href: '/mes-visites' as const },
+    { label: t('privatisation'), href: '/privatisation' as const },
+    { label: t('tarifs'),        href: '/tarifs' as const },
+    { label: t('actualites'),    href: '/actualites' as const },
+    { label: t('votreGuide'),    href: '/votre-guide' as const },
+  ]
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
     handleScroll()
@@ -31,7 +28,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Ferme le menu mobile si l'écran est redimensionné en desktop
   useEffect(() => {
     const handleResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false) }
     window.addEventListener('resize', handleResize)
@@ -51,24 +47,20 @@ export default function Header() {
       >
         <div className="w-full max-w-[1280px] mx-auto px-10 md:px-16 flex items-center justify-between py-5">
 
-          {/* Logo — photo + nom, tout cliquable vers accueil */}
           <Link
             href="/"
-            aria-label="Retour à l'accueil — Myriam Madec, Guide Conférencière"
+            aria-label={t('backToHome')}
             className="flex items-center gap-3 shrink-0"
           >
-            {/* Photo de Myriam — cercle */}
             <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-white/30">
               <Image
                 src="https://tourismearcachon.fr/wp-content/uploads/2021/02/cropped-Journee-Internationale-des-Guides-scaled-1.jpg"
-                alt="Myriam Madec, guide conférencière officielle du Bassin d'Arcachon"
+                alt="Myriam Madec"
                 fill
                 sizes="48px"
                 className="object-cover object-top"
               />
             </div>
-
-            {/* Nom + titre */}
             <div className="flex flex-col leading-tight">
               <span className={[
                 'font-[var(--font-serif)] text-[20px] italic font-normal',
@@ -82,12 +74,11 @@ export default function Header() {
                 'transition-colors duration-300',
                 scrolled ? 'text-[var(--text-muted)]' : 'text-white/75',
               ].join(' ')}>
-                Guide Conférencière
+                {t('guideConferenciere')}
               </span>
             </div>
           </Link>
 
-          {/* Navigation desktop */}
           <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <Link
@@ -105,7 +96,6 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* CTA Réservation */}
             <Link
               href="/contact"
               className={[
@@ -117,13 +107,14 @@ export default function Header() {
                   : 'bg-white text-[var(--primary)] hover:bg-white/90',
               ].join(' ')}
             >
-              Contact & Réservation
+              {t('contactReservation')}
             </Link>
+
+            <LanguageSwitcher scrolled={scrolled} />
           </nav>
 
-          {/* Burger mobile */}
           <button
-            aria-label="Ouvrir le menu"
+            aria-label={t('openMenu')}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen(true)}
             className={[

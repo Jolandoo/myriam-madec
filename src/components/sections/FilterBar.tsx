@@ -1,31 +1,30 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import type { Visite } from '@/data/visites'
 
 export type FilterValue = Visite['categorie'] | 'all'
 
-interface FilterOption {
-  value: FilterValue
-  label: string
-}
-
 interface FilterBarProps {
-  active:   FilterValue
+  active: FilterValue
   onChange: (value: FilterValue) => void
-  counts:   Record<FilterValue, number>
+  counts: Record<FilterValue, number>
 }
-
-const FILTERS: FilterOption[] = [
-  { value: 'all',              label: 'Toutes'          },
-  { value: 'pied',             label: 'À pied'          },
-  { value: 'velo-electrique',  label: 'Vélo électrique' },
-  { value: 'velo',             label: 'À vélo'          },
-  { value: 'bateau',           label: 'En bateau'       },
-]
 
 export default function FilterBar({ active, onChange, counts }: FilterBarProps) {
+  const t = useTranslations('filters')
+  const tGrid = useTranslations('visitesGrid')
+
+  const FILTERS: { value: FilterValue; label: string }[] = [
+    { value: 'all',             label: t('all') },
+    { value: 'pied',            label: t('pied') },
+    { value: 'velo-electrique', label: t('velo-electrique') },
+    { value: 'velo',            label: t('velo') },
+    { value: 'bateau',          label: t('bateau') },
+  ]
+
   return (
-    <div className="flex flex-wrap gap-2 justify-center" role="group" aria-label="Filtrer les visites">
+    <div className="flex flex-wrap gap-2 justify-center" role="group" aria-label={tGrid('filterLabel')}>
       {FILTERS.map((f) => {
         const isActive = active === f.value
         return (

@@ -1,30 +1,29 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import { X } from 'lucide-react'
-
-// ─── Types ────────────────────────────────────────────────────────────────────
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 interface NavLink {
   label: string
-  href:  string
+  href: string
 }
 
 interface MobileNavProps {
-  isOpen:   boolean
-  onClose:  () => void
-  links:    NavLink[]
+  isOpen: boolean
+  onClose: () => void
+  links: NavLink[]
 }
 
-// ─── Composant ────────────────────────────────────────────────────────────────
-
 export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
+  const t = useTranslations('nav')
+
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Fond semi-transparent derrière le menu */}
           <motion.div
             key="overlay"
             initial={{ opacity: 0 }}
@@ -36,7 +35,6 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
             aria-hidden="true"
           />
 
-          {/* Panneau de navigation */}
           <motion.nav
             key="panel"
             initial={{ opacity: 0, y: -16 }}
@@ -50,21 +48,22 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
             ].join(' ')}
             aria-label="Menu de navigation mobile"
           >
-            {/* En-tête du panneau */}
             <div className="flex items-center justify-between mb-8">
               <span className="font-[var(--font-serif)] text-lg text-[var(--primary)] italic">
                 Myriam Madec
               </span>
-              <button
-                onClick={onClose}
-                aria-label="Fermer le menu"
-                className="p-2 -mr-2 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
-              >
-                <X size={22} />
-              </button>
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher scrolled />
+                <button
+                  onClick={onClose}
+                  aria-label={t('closeMenu')}
+                  className="p-2 -mr-2 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
+                >
+                  <X size={22} />
+                </button>
+              </div>
             </div>
 
-            {/* Liens */}
             <ul className="flex flex-col gap-1">
               {links.map((link, i) => (
                 <motion.li
@@ -74,7 +73,7 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
                   transition={{ delay: i * 0.06, duration: 0.2 }}
                 >
                   <Link
-                    href={link.href}
+                    href={link.href as '/mes-visites'}
                     onClick={onClose}
                     className={[
                       'block py-3 px-2 rounded-lg',
@@ -89,7 +88,6 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
               ))}
             </ul>
 
-            {/* CTA réservation */}
             <div className="mt-8 pt-6 border-t border-[var(--border-color)]">
               <Link
                 href="/contact"
@@ -101,7 +99,7 @@ export default function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
                   'transition-colors hover:bg-[var(--primary-dark)]',
                 ].join(' ')}
               >
-                Contact & Réservation
+                {t('contactReservation')}
               </Link>
             </div>
           </motion.nav>
