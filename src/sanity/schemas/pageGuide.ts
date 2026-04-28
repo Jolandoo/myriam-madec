@@ -6,8 +6,8 @@ export default defineType({
   type: 'document',
   fields: [
     /* ── Hero ──────────────────────────────────────────────────────────── */
-    defineField({ name: 'heroTitle',       title: 'Titre hero',       type: 'string' }),
-    defineField({ name: 'heroDescription', title: 'Description hero', type: 'string' }),
+    defineField({ name: 'heroTitle',       title: 'Titre hero',       type: 'localeString' }),
+    defineField({ name: 'heroDescription', title: 'Description hero', type: 'localeString' }),
     defineField({ name: 'heroImage',       title: 'Image hero (URL)', type: 'url'    }),
     defineField({ name: 'heroImageAlt',    title: 'Alt image hero',   type: 'string' }),
 
@@ -16,15 +16,15 @@ export default defineType({
     defineField({ name: 'photoAlt', title: 'Alt photo',     type: 'string' }),
 
     /* ── Citation ───────────────────────────────────────────────────────── */
-    defineField({ name: 'citation', title: 'Citation (entre guillemets)', type: 'string' }),
+    defineField({ name: 'citation', title: 'Citation (entre guillemets)', type: 'localeString' }),
 
     /* ── Bio ────────────────────────────────────────────────────────────── */
     defineField({
       name: 'bio',
       title: 'Bio (paragraphes)',
       type: 'array',
-      of: [{ type: 'text', rows: 4 }],
-      description: 'Chaque entrée = un paragraphe',
+      of: [{ type: 'localeText' }],
+      description: 'Chaque entrée = un paragraphe (FR + EN)',
     }),
 
     /* ── Parcours ───────────────────────────────────────────────────────── */
@@ -36,9 +36,9 @@ export default defineType({
         type: 'object',
         fields: [
           { name: 'annee', title: 'Année', type: 'string' },
-          { name: 'label', title: 'Description', type: 'string' },
+          { name: 'label', title: 'Description', type: 'localeString' },
         ],
-        preview: { select: { title: 'annee', subtitle: 'label' } },
+        preview: { select: { title: 'annee', subtitle: 'label.fr' } },
       }],
     }),
 
@@ -65,10 +65,10 @@ export default defineType({
               ],
             },
           },
-          { name: 'label', title: 'Titre',       type: 'string' },
-          { name: 'desc',  title: 'Description', type: 'text', rows: 3 },
+          { name: 'label', title: 'Titre',       type: 'localeString' },
+          { name: 'desc',  title: 'Description', type: 'localeText' },
         ],
-        preview: { select: { title: 'label', subtitle: 'desc' } },
+        preview: { select: { title: 'label.fr', subtitle: 'desc.fr' } },
       }],
     }),
 
@@ -77,7 +77,7 @@ export default defineType({
       name: 'affiliations',
       title: 'Affiliations professionnelles',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'localeString' }],
     }),
   ],
   preview: { prepare: () => ({ title: 'Votre guide' }) },

@@ -5,9 +5,9 @@ export default defineType({
   title: 'Visite',
   type: 'document',
   fields: [
-    defineField({ name: 'titre',            title: 'Titre',             type: 'string', validation: r => r.required() }),
-    defineField({ name: 'slug',             title: 'Slug (URL)',        type: 'slug',   options: { source: 'titre' }, validation: r => r.required() }),
-    defineField({ name: 'sousTitre',        title: 'Sous-titre',        type: 'string' }),
+    defineField({ name: 'titre',            title: 'Titre',             type: 'localeString', validation: r => r.required() }),
+    defineField({ name: 'slug',             title: 'Slug (URL)',        type: 'slug',   options: { source: 'titre.fr' }, validation: r => r.required() }),
+    defineField({ name: 'sousTitre',        title: 'Sous-titre',        type: 'localeString' }),
     defineField({
       name: 'categorie', title: 'Catégorie', type: 'string',
       options: { list: [
@@ -19,8 +19,8 @@ export default defineType({
       validation: r => r.required(),
     }),
     defineField({ name: 'duree',            title: 'Durée (ex: 2h, 2-3h)', type: 'string' }),
-    defineField({ name: 'description',      title: 'Description longue',   type: 'text' }),
-    defineField({ name: 'descriptionCourte',title: 'Description courte (card, ~120 car.)', type: 'string' }),
+    defineField({ name: 'description',      title: 'Description longue',   type: 'localeText' }),
+    defineField({ name: 'descriptionCourte',title: 'Description courte (card, ~120 car.)', type: 'localeString' }),
     defineField({ name: 'image',            title: 'Image card (catalogue) — coller URL', type: 'string' }),
     defineField({ name: 'imageDetail',      title: 'Image hero (page détail) — coller URL', type: 'string' }),
     defineField({ name: 'imageCredit',      title: 'Crédit photo (ex: © CDT Gironde)', type: 'string' }),
@@ -46,11 +46,11 @@ export default defineType({
       name: 'programme',
       title: 'Au programme (étapes de la visite)',
       description: 'Décrivez le déroulé de la visite étape par étape. Sauter une ligne entre chaque étape.',
-      type: 'text',
+      type: 'localeText',
     }),
     defineField({ name: 'ordre',           title: 'Ordre d\'affichage (1, 2, 3...)', type: 'number' }),
   ],
   preview: {
-    select: { title: 'titre', subtitle: 'categorie' },
+    select: { title: 'titre.fr', subtitle: 'categorie' },
   },
 })

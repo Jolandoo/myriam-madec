@@ -14,65 +14,70 @@ export type SanityTarifs = {
   note?:      string
 }
 
-/* ── GROQ queries ──────────────────────────────────────────────────────────── */
+/* ── GROQ queries (locale-aware avec fallback FR) ─────────────────────────── */
 
+// coalesce handles both migrated (object with .fr/.en) and legacy (flat string) data
 const VISITE_FIELDS = `
   "slug":             slug.current,
-  titre, sousTitre, categorie, duree,
-  description, descriptionCourte,
+  "titre":            coalesce(titre[$locale], titre.fr, titre),
+  "sousTitre":        coalesce(sousTitre[$locale], sousTitre.fr, sousTitre),
+  categorie, duree,
+  "description":      coalesce(description[$locale], description.fr, description),
+  "descriptionCourte":coalesce(descriptionCourte[$locale], descriptionCourte.fr, descriptionCourte),
   image, imageDetail, imageCredit,
-  programme,
+  "programme":        coalesce(programme[$locale], programme.fr, programme),
   reservation, reservationUrl,
   tags, niveauActivite, enfantsFriendly, ordre
 `
 
 const ARTICLE_FIELDS = `
   "slug": slug.current,
-  titre, date, image, imageAlt,
-  extrait, contenu,
+  "titre":    coalesce(titre[$locale], titre.fr, titre),
+  date, image,
+  "imageAlt": coalesce(imageAlt[$locale], imageAlt.fr, imageAlt),
+  "extrait":  coalesce(extrait[$locale], extrait.fr, extrait),
+  "contenu":  coalesce(contenu[$locale], contenu.fr, contenu),
   images[]{ src, alt }
 `
 
 /* ── Fetchers avec fallback statique ───────────────────────────────────────── */
 
-export async function getVisites(): Promise<SanityVisite[]> {
+export async function getVisites(locale: string = 'fr'): Promise<SanityVisite[]> {
   try {
     if (!client) return staticVisites
     const data = await client.fetch<SanityVisite[]>(
       `*[_type == "visite"] | order(coalesce(ordre, 99)) { ${VISITE_FIELDS} }`,
-      {},
+      { locale },
       { next: { revalidate: 60 } }
     )
     if (data && data.length > 0) return data
   } catch (e) {
     console.error('Sanity getVisites error:', e)
   }
-  // Fallback fichier statique
   return staticVisites
 }
 
-export async function getVisite(slug: string): Promise<SanityVisite | null> {
+export async function getVisite(slug: string, locale: string = 'fr'): Promise<SanityVisite | null> {
   try {
     if (!client) return staticVisites.find(v => v.slug === slug) ?? null
     const data = await client.fetch<SanityVisite>(
       `*[_type == "visite" && slug.current == $slug][0] { ${VISITE_FIELDS} }`,
-      { slug },
+      { slug, locale },
       { next: { revalidate: 60 } }
     )
     if (data) return data
   } catch (e) {
     console.error('Sanity getVisite error:', e)
   }
-  // Fallback fichier statique
   return staticVisites.find(v => v.slug === slug) ?? null
 }
 
-export async function getArticles(): Promise<SanityArticle[]> {
+export async function getArticles(locale: string = 'fr'): Promise<SanityArticle[]> {
   try {
     if (!client) return staticArticles
     const data = await client.fetch<SanityArticle[]>(
       `*[_type == "article"] | order(_createdAt desc) { ${ARTICLE_FIELDS} }`,
-      {},
+      { locale },
       { next: { revalidate: 60 } }
     )
     if (data && data.length > 0) return data
@@ -82,12 +87,12 @@ export async function getArticles(): Promise<SanityArticle[]> {
   return staticArticles
 }
 
-export async function getArticle(slug: string): Promise<SanityArticle | null> {
+export async function getArticle(slug: string, locale: string = 'fr'): Promise<SanityArticle | null> {
   try {
     if (!client) return staticArticles.find(a => a.slug === slug) ?? null
     const data = await client.fetch<SanityArticle>(
       `*[_type == "article" && slug.current == $slug][0] { ${ARTICLE_FIELDS} }`,
-      { slug },
+      { slug, locale },
       { next: { revalidate: 60 } }
     )
     if (data) return data
@@ -128,18 +133,22 @@ export type SanityPagePrivatisation = {
   coupDeCoeurCta?:      string
 }
 
-export async function getPageGuide(): Promise<SanityPageGuide | null> {
+export async function getPageGuide(locale: string = 'fr'): Promise<SanityPageGuide | null> {
   try {
     if (!client) return null
     const data = await client.fetch<SanityPageGuide>(
       `*[_type == "pageGuide"][0] {
-        heroTitle, heroDescription, heroImage, heroImageAlt,
-        photo, photoAlt, citation, bio,
-        parcours[]{ annee, label },
-        specialites[]{ icone, label, desc },
-        affiliations
+        "heroTitle":       coalesce(heroTitle[$locale], heroTitle.fr, heroTitle),
+        "heroDescription": coalesce(heroDescription[$locale], heroDescription.fr, heroDescription),
+        heroImage, heroImageAlt,
+        photo, photoAlt,
+        "citation":        coalesce(citation[$locale], citation.fr, citation),
+        "bio":             bio[]{ "text": coalesce(@[$locale], @.fr, @) }.text,
+        parcours[]{ annee, "label": coalesce(label[$locale], label.fr, label) },
+        specialites[]{ icone, "label": coalesce(label[$locale], label.fr, label), "desc": coalesce(desc[$locale], desc.fr, desc) },
+        "affiliations":    affiliations[]{ "text": coalesce(@[$locale], @.fr, @) }.text
       }`,
-      {},
+      { locale },
       { next: { revalidate: 60 } }
     )
     if (data) return data
@@ -149,19 +158,23 @@ export async function getPageGuide(): Promise<SanityPageGuide | null> {
   return null
 }
 
-export async function getPagePrivatisation(): Promise<SanityPagePrivatisation | null> {
+export async function getPagePrivatisation(locale: string = 'fr'): Promise<SanityPagePrivatisation | null> {
   try {
     if (!client) return null
     const data = await client.fetch<SanityPagePrivatisation>(
       `*[_type == "pagePrivatisation"][0] {
-        heroTitle, heroDescription, heroImage, heroImageAlt,
-        modes[]{ icone, label, desc },
+        "heroTitle":       coalesce(heroTitle[$locale], heroTitle.fr, heroTitle),
+        "heroDescription": coalesce(heroDescription[$locale], heroDescription.fr, heroDescription),
+        heroImage, heroImageAlt,
+        modes[]{ icone, "label": coalesce(label[$locale], label.fr, label), "desc": coalesce(desc[$locale], desc.fr, desc) },
         galerie[]{ src, alt },
-        texte,
-        coupDeCoeurTitre, coupDeCoeurTexte,
-        coupDeCoeurImage, coupDeCoeurImageAlt, coupDeCoeurCta
+        "texte":               texte[]{ "text": coalesce(@[$locale], @.fr, @) }.text,
+        "coupDeCoeurTitre":    coalesce(coupDeCoeurTitre[$locale], coupDeCoeurTitre.fr, coupDeCoeurTitre),
+        "coupDeCoeurTexte":    coalesce(coupDeCoeurTexte[$locale], coupDeCoeurTexte.fr, coupDeCoeurTexte),
+        coupDeCoeurImage, coupDeCoeurImageAlt,
+        "coupDeCoeurCta":      coalesce(coupDeCoeurCta[$locale], coupDeCoeurCta.fr, coupDeCoeurCta)
       }`,
-      {},
+      { locale },
       { next: { revalidate: 60 } }
     )
     if (data) return data
@@ -171,17 +184,22 @@ export async function getPagePrivatisation(): Promise<SanityPagePrivatisation | 
   return null
 }
 
-export async function getTarifs(): Promise<SanityTarifs | null> {
+export async function getTarifs(locale: string = 'fr'): Promise<SanityTarifs | null> {
   try {
     if (!client) return null
     const data = await client.fetch<SanityTarifs>(
-      `*[_type == "tarifs"][0] { lignes, conditions, annulation, note }`,
-      {},
+      `*[_type == "tarifs"][0] {
+        lignes[]{ "duree": coalesce(duree[$locale], duree.fr, duree), prix },
+        "conditions": conditions[]{ "text": coalesce(@[$locale], @.fr, @) }.text,
+        annulation[]{ "delai": coalesce(delai[$locale], delai.fr, delai), "montant": coalesce(montant[$locale], montant.fr, montant) },
+        "note": coalesce(note[$locale], note.fr, note)
+      }`,
+      { locale },
       { next: { revalidate: 60 } }
     )
     if (data) return data
   } catch (e) {
     console.error('Sanity getTarifs error:', e)
   }
-  return null // la page tarifs a ses propres fallbacks statiques
+  return null
 }
