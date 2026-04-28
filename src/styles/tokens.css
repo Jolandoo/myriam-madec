@@ -1,16 +1,14 @@
 :root {
-  /* ─── Palette principale — Bleu Atlantique / Style épuré ─── */
-  --primary:       #1E6FA8;   /* Bleu principal — CTAs, liens actifs */
-  --primary-dark:  #145285;   /* Hover boutons */
-  --primary-light: #EBF5FF;   /* Fonds badges, hover nav */
+  /* ─── Palette principale — défaut / fallback ─── */
+  --primary:       #1E6FA8;
+  --primary-dark:  #145285;
+  --primary-light: #EBF5FF;
   --white:         #FFFFFF;
-  --off-white:     #F8FAFB;   /* Fonds sections alternées */
+  --off-white:     #F8FAFB;
   --gray-50:       #F8FAFB;
-  --gray-100:      #E8EAED;   /* Bordures, séparateurs */
-  --text-primary:  #111827;   /* Titres, texte principal */
-  --text-muted:    #6B7280;   /* Texte secondaire */
-
-  /* ─── Pas d'accent couleur — la photographie fait le travail ─── */
+  --gray-100:      #E8EAED;
+  --text-primary:  #111827;
+  --text-muted:    #6B7280;
 
   /* ─── Typographie ─── */
   --font-serif:   var(--font-playfair);
@@ -24,4 +22,23 @@
   /* ─── Ombres ─── */
   --shadow-card:       0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
   --shadow-card-hover: 0 4px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.10);
+}
+
+/* ─── Couleur par langue — inspirée des drapeaux ─── */
+[data-locale="fr"] {
+  --primary:       #002654;
+  --primary-dark:  #00152E;
+  --primary-light: #E8EFF8;
+}
+
+[data-locale="en"] {
+  --primary:       #C8102E;
+  --primary-dark:  #A00D24;
+  --primary-light: #FDE8EC;
+}
+
+[data-locale="es"] {
+  --primary:       #B8860B;
+  --primary-dark:  #8B6508;
+  --primary-light: #FFF8E1;
 }
