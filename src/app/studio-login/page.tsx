@@ -1,18 +1,32 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { createHmac, timingSafeEqual, randomUUID } from 'crypto'
+
+function signToken(token: string, secret: string): string {
+  return createHmac('sha256', secret).update(token).digest('hex')
+}
+
+function safeEqual(a: string, b: string): boolean {
+  const bufA = Buffer.from(a)
+  const bufB = Buffer.from(b)
+  if (bufA.length !== bufB.length) return false
+  return timingSafeEqual(bufA, bufB)
+}
 
 async function login(formData: FormData) {
   'use server'
   const password = formData.get('password') as string
   const secret   = process.env.STUDIO_SECRET
 
-  if (secret && password === secret) {
+  if (secret && safeEqual(password, secret)) {
+    const token = randomUUID()
+    const signed = `${token}.${signToken(token, secret)}`
     const cookieStore = await cookies()
-    cookieStore.set('studio_auth', secret, {
+    cookieStore.set('studio_auth', signed, {
       httpOnly: true,
       secure:   process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge:   60 * 60 * 24 * 30, // 30 jours
+      maxAge:   60 * 60 * 24 * 30,
       path:     '/',
     })
     redirect('/studio')
