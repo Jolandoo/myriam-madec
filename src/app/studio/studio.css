@@ -1,0 +1,7 @@
+[data-testid="document-panel-document-title"] {
+  color: #FFFFFF !important;
+}
+
+[data-testid="document-panel-document-title"] span {
+  color: #FFFFFF !important;
+}
