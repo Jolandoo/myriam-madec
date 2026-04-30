@@ -8,11 +8,11 @@ export default defineType({
     /* ── Hero ──────────────────────────────────────────────────────────── */
     defineField({ name: 'heroTitle',       title: 'Titre hero',       type: 'localeString' }),
     defineField({ name: 'heroDescription', title: 'Description hero', type: 'localeString' }),
-    defineField({ name: 'heroImage',       title: 'Image hero (URL)', type: 'url'    }),
+    defineField({ name: 'heroImage',       title: 'Image hero', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'heroImageAlt',    title: 'Alt image hero',   type: 'string' }),
 
     /* ── Photo principale ───────────────────────────────────────────────── */
-    defineField({ name: 'photo',    title: 'Photo (URL)',   type: 'url'    }),
+    defineField({ name: 'photo',    title: 'Photo', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'photoAlt', title: 'Alt photo',     type: 'string' }),
 
     /* ── Citation ───────────────────────────────────────────────────────── */

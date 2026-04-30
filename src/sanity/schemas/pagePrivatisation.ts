@@ -8,7 +8,7 @@ export default defineType({
     /* ── Hero ──────────────────────────────────────────────────────────── */
     defineField({ name: 'heroTitle',       title: 'Titre hero',       type: 'localeString' }),
     defineField({ name: 'heroDescription', title: 'Description hero', type: 'localeString' }),
-    defineField({ name: 'heroImage',       title: 'Image hero (URL)', type: 'url'    }),
+    defineField({ name: 'heroImage',       title: 'Image hero', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'heroImageAlt',    title: 'Alt image hero',   type: 'string' }),
 
     /* ── Modes de visite ────────────────────────────────────────────────── */
@@ -45,12 +45,11 @@ export default defineType({
       title: 'Galerie photos',
       type: 'array',
       of: [{
-        type: 'object',
+        type: 'image',
+        options: { hotspot: true },
         fields: [
-          { name: 'src', title: 'URL de la photo', type: 'url'    },
-          { name: 'alt', title: 'Description',      type: 'string' },
+          { name: 'alt', title: 'Description', type: 'string' },
         ],
-        preview: { select: { title: 'alt', subtitle: 'src' } },
       }],
     }),
 
@@ -66,7 +65,7 @@ export default defineType({
     /* ── Coup de cœur ───────────────────────────────────────────────────── */
     defineField({ name: 'coupDeCoeurTitre', title: 'Coup de cœur · Titre',     type: 'localeString' }),
     defineField({ name: 'coupDeCoeurTexte', title: 'Coup de cœur · Texte',     type: 'localeText' }),
-    defineField({ name: 'coupDeCoeurImage', title: 'Coup de cœur · Image (URL)', type: 'url' }),
+    defineField({ name: 'coupDeCoeurImage', title: 'Coup de cœur · Image', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'coupDeCoeurImageAlt', title: 'Coup de cœur · Alt image', type: 'string' }),
     defineField({ name: 'coupDeCoeurCta',  title: 'Coup de cœur · Texte bouton', type: 'localeString' }),
   ],

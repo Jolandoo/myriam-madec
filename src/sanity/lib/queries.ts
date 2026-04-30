@@ -28,7 +28,7 @@ const VISITE_FIELDS = `
   categorie, duree,
   "description":      coalesce(description[$locale], description.fr, description),
   "descriptionCourte":coalesce(descriptionCourte[$locale], descriptionCourte.fr, descriptionCourte),
-  image, imageDetail, imageCredit,
+  "image": image.asset->url, "imageDetail": imageDetail.asset->url, imageCredit,
   "programme":        coalesce(programme[$locale], programme.fr, programme),
   reservation, reservationUrl,
   tags, niveauActivite, enfantsFriendly, ordre
@@ -37,11 +37,11 @@ const VISITE_FIELDS = `
 const ARTICLE_FIELDS = `
   "slug": slug.current,
   "titre":    coalesce(titre[$locale], titre.fr, titre),
-  date, image,
+  date, "image": image.asset->url,
   "imageAlt": coalesce(imageAlt[$locale], imageAlt.fr, imageAlt),
   "extrait":  coalesce(extrait[$locale], extrait.fr, extrait),
   "contenu":  coalesce(contenu[$locale], contenu.fr, contenu),
-  images[]{ src, alt }
+  images[]{ "src": asset->url, alt }
 `
 
 /* ── Fetchers avec fallback statique ───────────────────────────────────────── */
@@ -146,8 +146,8 @@ export async function getPageGuide(locale: string = 'fr'): Promise<SanityPageGui
       `*[_type == "pageGuide"][0] {
         "heroTitle":       coalesce(heroTitle[$locale], heroTitle.fr, heroTitle),
         "heroDescription": coalesce(heroDescription[$locale], heroDescription.fr, heroDescription),
-        heroImage, heroImageAlt,
-        photo, photoAlt,
+        "heroImage": heroImage.asset->url, heroImageAlt,
+        "photo": photo.asset->url, photoAlt,
         "citation":        coalesce(citation[$locale], citation.fr, citation),
         "bio":             bio[]{ "text": coalesce(@[$locale], @.fr, @) }.text,
         parcours[]{ annee, "label": coalesce(label[$locale], label.fr, label) },
@@ -171,13 +171,13 @@ export async function getPagePrivatisation(locale: string = 'fr'): Promise<Sanit
       `*[_type == "pagePrivatisation"][0] {
         "heroTitle":       coalesce(heroTitle[$locale], heroTitle.fr, heroTitle),
         "heroDescription": coalesce(heroDescription[$locale], heroDescription.fr, heroDescription),
-        heroImage, heroImageAlt,
+        "heroImage": heroImage.asset->url, heroImageAlt,
         modes[]{ icone, "label": coalesce(label[$locale], label.fr, label), "desc": coalesce(desc[$locale], desc.fr, desc) },
-        galerie[]{ src, alt },
+        galerie[]{ "src": asset->url, alt },
         "texte":               texte[]{ "text": coalesce(@[$locale], @.fr, @) }.text,
         "coupDeCoeurTitre":    coalesce(coupDeCoeurTitre[$locale], coupDeCoeurTitre.fr, coupDeCoeurTitre),
         "coupDeCoeurTexte":    coalesce(coupDeCoeurTexte[$locale], coupDeCoeurTexte.fr, coupDeCoeurTexte),
-        coupDeCoeurImage, coupDeCoeurImageAlt,
+        "coupDeCoeurImage": coupDeCoeurImage.asset->url, coupDeCoeurImageAlt,
         "coupDeCoeurCta":      coalesce(coupDeCoeurCta[$locale], coupDeCoeurCta.fr, coupDeCoeurCta)
       }`,
       { locale },
