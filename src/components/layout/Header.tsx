@@ -41,7 +41,7 @@ export default function Header() {
           'fixed top-0 left-0 right-0 z-30',
           'transition-all duration-300 ease-in-out',
           scrolled
-            ? 'bg-[var(--white)] shadow-[0_1px_0_var(--gray-100)]'
+            ? 'bg-white/70 backdrop-blur-xl saturate-[1.8] shadow-[0_1px_0_var(--gray-100)]'
             : 'bg-black/30 backdrop-blur-sm',
         ].join(' ')}
       >
